@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Goldenes Löwenäffchen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Galerie</a></li>
+        <li><a href="../home.html">Pro Zoo</a></li>
+        <li><a href="../unterstuetzer.html">Unterstützer</a></li>
+        <li><a href="../zitate.html">Zitate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="card">
+    <h1>Goldenes Löwenäffchen</h1>
+    <div class="carousel-container">
+      <img id="carousel-img" src="../img/loewen1.jpg"
+        data-images="../img/loewen1.jpg,../img/loewen2.jpg,../img/loewen3.jpg"
+        alt="Goldenes Löwenäffchen" />
+    </div>
+
+    <div class="info-box">
+      <h2>Status</h2>
+      <img src="https://www.iucnredlist.org/resources/categories-and-criteria/EN.png" alt="IUCN Status" style="max-width: 150px;" />
+      <p><strong>Bedrohungsstatus:</strong> Endangered (EN)</p>
+      <p><a href="https://www.iucnredlist.org/species/11506/17949949" target="_blank">Zur IUCN-Artseite</a></p>
+    </div>
+
+    <div class="info-box">
+      <h2>Ex-situ Daten</h2>
+      <ul>
+        <li>Ca. <strong>200 Tiere</strong> in Zoos</li>
+        <li>In <strong>20 Ländern</strong></li>
+        <li>Verteilt auf <strong>30 Institutionen</strong></li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h2>Hintergrund</h2>
+      <p>Durch Zerstörung des atlantischen Regenwalds drohte das Aussterben. Zoos unterstützten Zuchtprogramme und Wiederansiedlung in Brasilien.</p>
+    </div>
+
+    <p><a href="../index.html">← Zurück zur Galerie</a></p>
+  </section>
+
+  <script>
+    const img = document.getElementById("carousel-img");
+    const imgs = img.dataset.images.split(",");
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % imgs.length;
+      img.src = imgs[i];
+    }, 8000);
+  </script>
+</body>
+</html>
