@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerettete Tierarten Galerie</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0d0d0d;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+        }
+        header {
+            text-align: center;
+            padding: 2em;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5em;
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1em;
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .card p {
+            font-size: 0.95em;
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Galerie der von Zoos geretteten Tierarten</h1>
+    </header>
+    <div class="gallery">
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Wisent" alt="Wisent">
+            <div class="card-content">
+                <h2>Wisent</h2>
+                <p>Der Europäische Bison wurde durch Zuchtprogramme in Zoos vor dem Aussterben bewahrt.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Tequila-Kärpfling" alt="Tequila-Kärpfling">
+            <div class="card-content">
+                <h2>Tequila-Kärpfling</h2>
+                <p>Dieser kleine Fisch wurde durch Nachzucht in Aquarien vor dem Verschwinden gerettet.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Baumhummer" alt="Baumhummer">
+            <div class="card-content">
+                <h2>Baumhummer</h2>
+                <p>Die Riesen-Stabheuschrecke galt als ausgestorben und wurde durch Zoos erhalten.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Schwarzfußiltis" alt="Schwarzfußiltis">
+            <div class="card-content">
+                <h2>Schwarzfußiltis</h2>
+                <p>Durch koordinierte Zuchtprogramme wurde er erfolgreich wieder angesiedelt.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Kalifornischer+Kondor" alt="Kalifornischer Kondor">
+            <div class="card-content">
+                <h2>Kalifornischer Kondor</h2>
+                <p>Die Population stieg dank Schutzprojekten in Zoos wieder an.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Waldrapp" alt="Waldrapp">
+            <div class="card-content">
+                <h2>Waldrapp</h2>
+                <p>Diese Ibis-Art wird durch aufwendige Freilandprojekte geschützt.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Socorro-Taube" alt="Socorro-Taube">
+            <div class="card-content">
+                <h2>Socorro-Taube</h2>
+                <p>Nur noch in Zoos erhalten, mit geplanten Auswilderungen in Mexiko.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Przewalski-Pferd" alt="Przewalski-Pferd">
+            <div class="card-content">
+                <h2>Przewalski-Pferd</h2>
+                <p>Ausgestorben in freier Wildbahn, durch Zoos wieder eingebürgert.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Goldenes+Löwenäffchen" alt="Goldenes Löwenäffchen">
+            <div class="card-content">
+                <h2>Goldenes Löwenäffchen</h2>
+                <p>Brasilianischer Regenwald-Bewohner – durch Zoos aktiv geschützt.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Bali-Star" alt="Bali-Star">
+            <div class="card-content">
+                <h2>Bali-Star</h2>
+                <p>Stark gefährdeter Vogel, durch Nachzuchten in Zoos gesichert.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
