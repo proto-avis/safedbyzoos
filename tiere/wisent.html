@@ -21,8 +21,8 @@
   <section class="card">
     <h1>Wisent</h1>
     <div class="carousel-container">
-      <img id="carousel-img" src="../img/wisent1.jpg" 
-           data-images="../img/wisent1.jpg,../img/wisent2.jpg,../img/wisent3.jpg" 
+      <img id="carousel-img" src="../img/wisent1.jpg"
+           data-images="../img/wisent1.jpg,../img/wisent2.jpg,../img/wisent3.jpg"
            alt="Wisent-Bilder" />
     </div>
 
@@ -51,15 +51,16 @@
   </section>
 
   <script>
-    // Karussell für Detailseite
+    // Bild-Karussell
     const img = document.getElementById("carousel-img");
     const imgs = img.dataset.images.split(",");
     let i = 0;
     setInterval(() => {
       i = (i + 1) % imgs.length;
       img.src = imgs[i];
-    }, 8000);
+    }, 11000);
   </script>
 </body>
 </html>
+
 
