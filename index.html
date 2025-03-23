@@ -36,6 +36,8 @@
   </section>
 
   <section class="gallery" id="galerie">
+    <!-- Alle 7 Tiere -->
+    <!-- Beispiel: Wisent -->
     <div class="card" data-group="Säugetier">
       <a href="tiere/wisent.html">
         <img class="carousel" src="img/wisent1.jpg"
@@ -136,8 +138,8 @@
         setInterval(() => {
           index = (index + 1) % images.length;
           img.src = images[index];
-        }, 10000);
-      }, i * 3000); // versetzt starten
+        }, 11000); // Bildwechsel alle 11 Sekunden
+      }, i * 5000); // Versetzter Start alle 5 Sekunden
     });
   </script>
 </body>
