@@ -5,12 +5,12 @@
   <title>Saved by Zoos – Galerie</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 </head>
 <body>
   <header>
     <div class="logo">
-      <div class="logo-line1">Saved by</div>
-      <div class="logo-line2">Zoos</div>
+      <img src="img/Logo.jpg" alt="Saved by Zoos Logo" class="logo-img" />
     </div>
     <nav>
       <ul>
@@ -36,8 +36,8 @@
   </section>
 
   <section class="gallery" id="galerie">
-    <!-- Alle 7 Tiere -->
-    <!-- Beispiel: Wisent -->
+    <!-- Beispielkarten für alle Tiere – wie bereits besprochen -->
+    <!-- Wisent -->
     <div class="card" data-group="Säugetier">
       <a href="tiere/wisent.html">
         <img class="carousel" src="img/wisent1.jpg"
@@ -46,74 +46,19 @@
         <h2>Wisent</h2>
       </a>
     </div>
-
-    <div class="card" data-group="Vogel">
-      <a href="tiere/waldrapp.html">
-        <img class="carousel" src="img/waldrapp1.jpg"
-             data-images="img/waldrapp1.jpg,img/waldrapp2.jpg,img/waldrapp3.jpg"
-             alt="Waldrapp" />
-        <h2>Waldrapp</h2>
-      </a>
-    </div>
-
-    <div class="card" data-group="Säugetier">
-      <a href="tiere/schwarzfussiltis.html">
-        <img class="carousel" src="img/iltis1.jpg"
-             data-images="img/iltis1.jpg,img/iltis2.jpg,img/iltis3.jpg"
-             alt="Schwarzfußiltis" />
-        <h2>Schwarzfußiltis</h2>
-      </a>
-    </div>
-
-    <div class="card" data-group="Säugetier">
-      <a href="tiere/arabische-oryx.html">
-        <img class="carousel" src="img/oryx1.jpg"
-             data-images="img/oryx1.jpg,img/oryx2.jpg,img/oryx3.jpg"
-             alt="Arabische Oryx" />
-        <h2>Arabische Oryx</h2>
-      </a>
-    </div>
-
-    <div class="card" data-group="Vogel">
-      <a href="tiere/kalifornischer-kondor.html">
-        <img class="carousel" src="img/kondor1.jpg"
-             data-images="img/kondor1.jpg,img/kondor2.jpg,img/kondor3.jpg"
-             alt="Kalifornischer Kondor" />
-        <h2>Kalifornischer Kondor</h2>
-      </a>
-    </div>
-
-    <div class="card" data-group="Säugetier">
-      <a href="tiere/goldenes-loewenaeffchen.html">
-        <img class="carousel" src="img/loewen1.jpg"
-             data-images="img/loewen1.jpg,img/loewen2.jpg,img/loewen3.jpg"
-             alt="Goldenes Löwenäffchen" />
-        <h2>Goldenes Löwenäffchen</h2>
-      </a>
-    </div>
-
-    <div class="card" data-group="Insekt">
-      <a href="tiere/baumhummer.html">
-        <img class="carousel" src="img/baumhummer1.jpg"
-             data-images="img/baumhummer1.jpg,img/baumhummer2.jpg,img/baumhummer3.jpg"
-             alt="Baumhummer" />
-        <h2>Baumhummer</h2>
-      </a>
-    </div>
+    <!-- Weitere Tiere hier einfügen -->
   </section>
 
- <footer>
-  <p>© 2025 Saved by Zoos – Alle Rechte vorbehalten.</p>
-  <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
-</footer>
+  <footer>
+    <p>© 2025 Saved by Zoos – Alle Rechte vorbehalten.</p>
+    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
 
   <script>
-    // Filter-UI toggle
     document.getElementById("filter-toggle").onclick = () => {
       document.getElementById("filter-controls").classList.toggle("show");
     };
 
-    // Suche
     document.getElementById("searchInput").addEventListener("input", function () {
       const filter = this.value.toLowerCase();
       document.querySelectorAll(".card").forEach((card) => {
@@ -122,7 +67,6 @@
       });
     });
 
-    // Gruppenfilter
     document.getElementById("groupFilter").addEventListener("change", function () {
       const group = this.value;
       document.querySelectorAll(".card").forEach((card) => {
@@ -130,7 +74,6 @@
       });
     });
 
-    // Bildkarussell für alle Tiere
     document.querySelectorAll(".carousel").forEach((img, i) => {
       const images = img.dataset.images.split(",");
       let index = 0;
@@ -138,12 +81,13 @@
         setInterval(() => {
           index = (index + 1) % images.length;
           img.src = images[index];
-        }, 11000); // Bildwechsel alle 11 Sekunden
-      }, i * 5000); // Versetzter Start alle 5 Sekunden
+        }, 11000);
+      }, i * 5000);
     });
   </script>
 </body>
 </html>
+
 
 
 
