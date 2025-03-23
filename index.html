@@ -1,66 +1,100 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Gerettete Tierarten</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Saved by Zoos – Galerie</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Galerie</a></li>
-      <li><a href="unterstuetzer.html">Unterstützer</a></li>
-      <li><a href="#">Zitate</a></li>
-    </ul>
-  </nav>
-  <h1 id="home">Gerettete Tierarten</h1>
-</header>
+  <header>
+    <div class="logo">
+      <div class="logo-line1">Saved by</div>
+      <div class="logo-line2">Zoos</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Galerie</a></li>
+        <li><a href="home.html">Pro Zoo</a></li>
+        <li><a href="unterstuetzer.html">Unterstützer</a></li>
+        <li><a href="zitate.html">Zitate</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section id="filter">
-  <input type="text" id="searchInput" placeholder="🔍 Suche nach Tiername...">
-  <select id="groupFilter">
-    <option value="">Alle Gruppen</option>
-    <option value="Säugetier">Säugetier</option>
-    <option value="Vogel">Vogel</option>
-    <option value="Insekt">Insekt</option>
-  </select>
-</section>
+  <section id="filter-container">
+    <button id="filter-toggle">🔍 Filter öffnen</button>
+    <div id="filter-controls">
+      <input type="text" id="searchInput" placeholder="Tiername suchen..." />
+      <select id="groupFilter">
+        <option value="">Alle Gruppen</option>
+        <option value="Säugetier">Säugetier</option>
+        <option value="Vogel">Vogel</option>
+      </select>
+    </div>
+  </section>
 
-<section class="gallery" id="galerie">
-  <div class="card" data-group="Säugetier">
-    <a href="tiere/wisent.html">
-      <img src="https://via.placeholder.com/400x200?text=Wisent" alt="Wisent">
-      <h2>Wisent</h2>
-    </a>
-  </div>
-  <div class="card" data-group="Vogel">
-    <a href="tiere/waldrapp.html">
-      <img src="https://via.placeholder.com/400x200?text=Waldrapp" alt="Waldrapp">
-      <h2>Waldrapp</h2>
-    </a>
-  </div>
-</section>
+  <section class="gallery" id="galerie">
+    <div class="card" data-group="Säugetier">
+      <a href="tiere/wisent.html">
+        <img class="carousel" 
+             src="img/wisent1.jpg" 
+             data-images="img/wisent1.jpg,img/wisent2.jpg,img/wisent3.jpg" 
+             alt="Wisent" />
+        <h2>Wisent</h2>
+      </a>
+    </div>
+    <div class="card" data-group="Vogel">
+      <a href="tiere/waldrapp.html">
+        <img class="carousel" 
+             src="img/waldrapp1.jpg" 
+             data-images="img/waldrapp1.jpg,img/waldrapp2.jpg,img/waldrapp3.jpg" 
+             alt="Waldrapp" />
+        <h2>Waldrapp</h2>
+      </a>
+    </div>
+  </section>
 
-<script>
-  // Suchfunktion
-  const searchInput = document.getElementById("searchInput");
-  searchInput.addEventListener("keyup", () => {
-    const filter = searchInput.value.toLowerCase();
-    document.querySelectorAll(".card").forEach(card => {
-      const name = card.querySelector("h2").innerText.toLowerCase();
-      card.style.display = name.includes(filter) ? "block" : "none";
+  <footer>
+    <p>© 2025 Saved by Zoos – Alle Rechte vorbehalten.</p>
+    <p><a href="#">Impressum</a> | <a href="#">Datenschutz</a></p>
+  </footer>
+
+  <script>
+    // Filter-UI auf/zu
+    document.getElementById("filter-toggle").onclick = () => {
+      document.getElementById("filter-controls").classList.toggle("show");
+    };
+
+    // Suche
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const filter = this.value.toLowerCase();
+      document.querySelectorAll(".card").forEach((card) => {
+        const name = card.querySelector("h2").innerText.toLowerCase();
+        card.style.display = name.includes(filter) ? "block" : "none";
+      });
     });
-  });
 
-  // Gruppenfilter
-  const groupFilter = document.getElementById("groupFilter");
-  groupFilter.addEventListener("change", () => {
-    const group = groupFilter.value;
-    document.querySelectorAll(".card").forEach(card => {
-      card.style.display = !group || card.dataset.group === group ? "block" : "none";
+    // Gruppenfilter
+    document.getElementById("groupFilter").addEventListener("change", function () {
+      const group = this.value;
+      document.querySelectorAll(".card").forEach((card) => {
+        card.style.display = !group || card.dataset.group === group ? "block" : "none";
+      });
     });
-  });
-</script>
+
+    // Bildkarussell pro Tier
+    document.querySelectorAll(".carousel").forEach((img, i) => {
+      const images = img.dataset.images.split(",");
+      let index = 0;
+      setTimeout(() => {
+        setInterval(() => {
+          index = (index + 1) % images.length;
+          img.src = images[index];
+        }, 10000);
+      }, i * 3000); // versetzter Start
+    });
+  </script>
 </body>
 </html>
+
