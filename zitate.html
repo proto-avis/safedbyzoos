@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zitate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .quote-box {
+      max-width: 700px;
+      margin: 5em auto;
+      padding: 2em;
+      background: #1a1a1a;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.4em;
+      line-height: 1.6;
+    }
+
+    .quote-box button {
+      margin: 1em 0.5em;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.5em 1.5em;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    .quote-author {
+      display: block;
+      margin-top: 1em;
+      font-size: 0.9em;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Galerie</a></li>
+        <li><a href="home.html">Pro Zoo</a></li>
+        <li><a href="unterstuetzer.html">Unterstützer</a></li>
+        <li><a href="zitate.html">Zitate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="quote-box">
+    <p id="quote-text">"Zoos sind Fenster zur Wildnis – sie bringen Menschen zum Staunen und Nachdenken."</p>
+    <span class="quote-author" id="quote-author">– Fiktive Biologin</span>
+    <div>
+      <button onclick="prevQuote()">⬅️</button>
+      <button onclick="nextQuote()">➡️</button>
+    </div>
+  </section>
+
+  <script>
+    const quotes = [
+      {
+        text: "Zoos sind Fenster zur Wildnis – sie bringen Menschen zum Staunen und Nachdenken.",
+        author: "Fiktive Biologin"
+      },
+      {
+        text: "Was wir nicht sehen, schützen wir nicht. Zoos schaffen Sichtbarkeit für bedrohte Arten.",
+        author: "Fiktiver Zoo-Ökologe"
+      },
+      {
+        text: "Jede Art, die in einem Zoo überlebt, kann draußen eines Tages zurückkehren.",
+        author: "Fiktive Artenschützerin"
+      },
+      {
+        text: "Kinder lernen im Zoo Empathie – das ist die Grundlage für aktiven Naturschutz.",
+        author: "Fiktive Pädagogin"
+      },
+      {
+        text: "Zoos sind keine Gefängnisse – sie sind Schutzburgen gegen das Artensterben.",
+        author: "Fiktiver Zoodirektor"
+      }
+    ];
+
+    let current = 0;
+    const textEl = document.getElementById("quote-text");
+    const authorEl = document.getElementById("quote-author");
+
+    function showQuote(index) {
+      textEl.textContent = `"${quotes[index].text}"`;
+      authorEl.textContent = `– ${quotes[index].author}`;
+    }
+
+    function nextQuote() {
+      current = (current + 1) % quotes.length;
+      showQuote(current);
+    }
+
+    function prevQuote() {
+      current = (current - 1 + quotes.length) % quotes.length;
+      showQuote(current);
+    }
+
+    // Auto-Wechsel alle 10 Sekunden
+    setInterval(() => {
+      nextQuote();
+    }, 10000);
+  </script>
+</body>
+</html>
