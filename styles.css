@@ -23,13 +23,11 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Header & Menü */
+/* === Header & Menü === */
 .logo-large {
   height: 50px;
   max-height: 10vh;
   object-fit: contain;
-}
-
 }
 
 .topbar {
@@ -52,13 +50,15 @@ a:hover {
 .offcanvas-menu {
   position: fixed;
   top: 0;
-  right: -75%;
+  right: -100%;
   width: 75%;
-  height: 100%;
+  max-height: calc(100vh - 2em);
+  overflow-y: auto;
   background: #111;
   z-index: 999;
-  padding: 2em 1.5em;
+  padding: 5em 1.5em 2em;
   transition: right 0.3s ease;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.5);
 }
 
 .offcanvas-menu.open {
@@ -97,13 +97,13 @@ a:hover {
 /* === Gerettete Arten === */
 .highlight-section {
   background: white;
-  padding: 4em 1em;
+  padding: 2.5em 1em;
 }
 
 .highlight-box {
   background: #111;
   color: white;
-  padding: 2em;
+  padding: 1.5em;
   border-radius: 10px;
   max-width: 1000px;
   margin: auto;
@@ -163,13 +163,13 @@ a:hover {
 /* === Zoo-Kooperationen === */
 .coop-section {
   background: white;
-  padding: 4em 1em;
+  padding: 2.5em 1em;
 }
 
 .coop-box {
   background: #fff;
   color: #111;
-  padding: 2em;
+  padding: 1.5em;
   border-radius: 10px;
   max-width: 1000px;
   margin: auto;
@@ -208,13 +208,13 @@ a:hover {
 /* === Argumente === */
 .argumente-section {
   background: white;
-  padding: 4em 1em;
+  padding: 2.5em 1em;
 }
 
 .argumente-box {
   background: #111;
   color: white;
-  padding: 2em;
+  padding: 1.5em;
   border-radius: 10px;
   max-width: 1000px;
   margin: auto;
@@ -248,17 +248,28 @@ a:hover {
 /* === Zitate === */
 .zitate-section {
   background: white;
-  padding: 4em 1em;
+  padding: 2.5em 1em;
 }
 
 .zitate-box {
   background: #111;
   color: white;
-  padding: 2em;
+  padding: 1.5em;
   border-radius: 10px;
   max-width: 1000px;
   margin: auto;
   text-align: center;
+}
+
+.zitate-box h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.zitate-scroll-gallery {
+  overflow: hidden;
+  position: relative;
+  margin: 2em 0;
 }
 
 .zitate-track {
@@ -266,12 +277,6 @@ a:hover {
   gap: 3em;
   width: max-content;
   animation: scroll-left 40s linear infinite;
-}
-
-.zitate-scroll-gallery {
-  overflow: hidden;
-  position: relative;
-  margin: 2em 0;
 }
 
 .zitat {
@@ -317,5 +322,3 @@ footer {
   font-size: 0.9em;
   margin-top: 2em;
 }
-
-
