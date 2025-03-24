@@ -226,3 +226,49 @@ footer {
   100% { transform: translateX(0); }
 }
 
+/* === Pro-Zoo Argumente === */
+.argumente-section {
+  background: white;
+  padding: 4em 1em;
+}
+
+.argumente-box {
+  background: #111;
+  color: white;
+  padding: 2em;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.argumente-box h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.argumente-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5em;
+  text-align: left;
+  margin-top: 2em;
+}
+
+.argument {
+  background: #222;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+.argument .kritik {
+  font-weight: bold;
+  color: #ff4d4d;
+  margin-bottom: 0.5em;
+}
+
+.argument .antwort {
+  color: #e0e0e0;
+  margin: 0;
+}
+
