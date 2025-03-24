@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wieso Zoo?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="img/Logo.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'League Spartan', sans-serif;
+    }
+
+    .fact-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      padding: 3em 2em;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .fact-box {
+      background: #1a1a1a;
+      padding: 2em;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: 500;
+    }
+
+    .fact-box strong {
+      display: block;
+      font-size: 2.5em;
+      color: #ffcc00;
+      margin: 0.5em 0;
+    }
+
+    @media (max-width: 600px) {
+      .fact-box {
+        font-size: 1.3em;
+      }
+      .fact-box strong {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="img/Logo.png" alt="Saved by Zoos Logo" class="logo-img" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Galerie</a></li>
+        <li><a href="home.html">Pro Zoo</a></li>
+        <li><a href="wieso-zoo.html">Wieso Zoo?</a></li>
+        <li><a href="unterstuetzer.html">Unterstützer</a></li>
+        <li><a href="zitate.html">Zitate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="fact-section">
+    <div class="fact-box" id="turtles">
+      🐢 <strong id="turtleCount">0%</strong> aller Schildkrötenarten sind bedroht.
+    </div>
+
+    <div class="fact-box">
+      🌱 <strong id="rainforestCount">0</strong> m² Regenwald wurden heute zerstört.
+    </div>
+
+    <div class="fact-box">
+      ☠️ <strong id="speciesCount">0</strong> Arten sind heute bereits ausgestorben.
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Saved by Zoos – Alle Rechte vorbehalten.</p>
+    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
+  </footer>
+
+  <script>
+    // Schildkröten-Zähler (einmalig animiert auf 60%)
+    const turtle = document.getElementById("turtleCount");
+    let turtleAnimated = false;
+    window.addEventListener("scroll", () => {
+      const top = turtle.getBoundingClientRect().top;
+      if (!turtleAnimated && top < window.innerHeight) {
+        turtleAnimated = true;
+        let count = 0;
+        const interval = setInterval(() => {
+          count++;
+          turtle.textContent = count + "%";
+          if (count >= 60) clearInterval(interval);
+        }, 20);
+      }
+    });
+
+    // Zeit seit Mitternacht
+    function getSecondsToday() {
+      const now = new Date();
+      const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      return Math.floor((now - midnight) / 1000);
+    }
+
+    // Live-Zähler
+    function updateLiveCounters() {
+      const seconds = getSecondsToday();
+
+      // Regenwald: 130 m² pro Sekunde
+      const rainforest = Math.floor(seconds * 130).toLocaleString();
+      document.getElementById("rainforestCount").textContent = rainforest;
+
+      // Arten: 140 pro Tag → ≈ 0.0016 pro Sekunde
+      const species = (seconds * (140 / 86400)).toFixed(0);
+      document.getElementById("speciesCount").textContent = species;
+    }
+
+    updateLiveCounters();
+    setInterval(updateLiveCounters, 10000); // Alle 10 Sekunden aktualisieren
+  </script>
+</body>
+</html>
