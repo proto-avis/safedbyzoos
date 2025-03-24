@@ -24,7 +24,6 @@
     </nav>
   </header>
 
-  <!-- Filter -->
   <section id="filter-container">
     <button id="filter-toggle">🔍 Filter öffnen</button>
     <div id="filter-controls">
@@ -38,9 +37,7 @@
     </div>
   </section>
 
-  <!-- Galerie -->
   <section class="gallery" id="galerie">
-    <!-- Beispielkarte -->
     <div class="card" data-group="Säugetier">
       <a href="tiere/wisent.html">
         <img class="carousel" src="img/wisent1.jpg"
@@ -49,7 +46,60 @@
         <h2>Wisent</h2>
       </a>
     </div>
-    <!-- Weitere Tiere einfügen -->
+
+    <div class="card" data-group="Vogel">
+      <a href="tiere/waldrapp.html">
+        <img class="carousel" src="img/waldrapp1.jpg"
+             data-images="img/waldrapp1.jpg,img/waldrapp2.jpg,img/waldrapp3.jpg"
+             alt="Waldrapp" />
+        <h2>Waldrapp</h2>
+      </a>
+    </div>
+
+    <div class="card" data-group="Säugetier">
+      <a href="tiere/schwarzfussiltis.html">
+        <img class="carousel" src="img/iltis1.jpg"
+             data-images="img/iltis1.jpg,img/iltis2.jpg,img/iltis3.jpg"
+             alt="Schwarzfußiltis" />
+        <h2>Schwarzfußiltis</h2>
+      </a>
+    </div>
+
+    <div class="card" data-group="Säugetier">
+      <a href="tiere/arabische-oryx.html">
+        <img class="carousel" src="img/oryx1.jpg"
+             data-images="img/oryx1.jpg,img/oryx2.jpg,img/oryx3.jpg"
+             alt="Arabische Oryx" />
+        <h2>Arabische Oryx</h2>
+      </a>
+    </div>
+
+    <div class="card" data-group="Vogel">
+      <a href="tiere/kalifornischer-kondor.html">
+        <img class="carousel" src="img/kondor1.jpg"
+             data-images="img/kondor1.jpg,img/kondor2.jpg,img/kondor3.jpg"
+             alt="Kalifornischer Kondor" />
+        <h2>Kalifornischer Kondor</h2>
+      </a>
+    </div>
+
+    <div class="card" data-group="Säugetier">
+      <a href="tiere/goldenes-loewenaeffchen.html">
+        <img class="carousel" src="img/loewen1.jpg"
+             data-images="img/loewen1.jpg,img/loewen2.jpg,img/loewen3.jpg"
+             alt="Goldenes Löwenäffchen" />
+        <h2>Goldenes Löwenäffchen</h2>
+      </a>
+    </div>
+
+    <div class="card" data-group="Insekt">
+      <a href="tiere/baumhummer.html">
+        <img class="carousel" src="img/baumhummer1.jpg"
+             data-images="img/baumhummer1.jpg,img/baumhummer2.jpg,img/baumhummer3.jpg"
+             alt="Baumhummer" />
+        <h2>Baumhummer</h2>
+      </a>
+    </div>
   </section>
 
   <footer>
@@ -57,21 +107,8 @@
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
   </footer>
 
-  <!-- Floating Hamburger Menu -->
-  <div class="hamburger" onclick="toggleMobileMenu()">
-    ☰
-  </div>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html">Galerie</a>
-    <a href="home.html">Pro Zoo</a>
-    <a href="wieso-zoo.html">Wieso Zoo?</a>
-    <a href="unterstuetzer.html">Unterstützer</a>
-    <a href="zitate.html">Zitate</a>
-  </div>
-
   <script>
-    // Navigation: Filter toggeln
+    // Filter toggle
     document.getElementById("filter-toggle").onclick = () => {
       document.getElementById("filter-controls").classList.toggle("show");
     };
@@ -85,7 +122,7 @@
       });
     });
 
-    // Gruppenauswahl
+    // Gruppenfilter
     document.getElementById("groupFilter").addEventListener("change", function () {
       const group = this.value;
       document.querySelectorAll(".card").forEach((card) => {
@@ -93,7 +130,7 @@
       });
     });
 
-    // Bild-Karussell
+    // Bildkarussell
     document.querySelectorAll(".carousel").forEach((img, i) => {
       const images = img.dataset.images.split(",");
       let index = 0;
@@ -104,14 +141,10 @@
         }, 11000);
       }, i * 5000);
     });
-
-    // Mobile Menü
-    function toggleMobileMenu() {
-      document.getElementById("mobileMenu").classList.toggle("show");
-    }
   </script>
 </body>
 </html>
+
 
 
 
