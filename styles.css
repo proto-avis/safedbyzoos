@@ -23,8 +23,9 @@ a:hover {
   text-decoration: underline;
 }
 
-.logo-small {
-  height: 40px;
+/* Header & Menü */
+.logo-large {
+  height: 70px;
 }
 
 .topbar {
@@ -89,7 +90,7 @@ a:hover {
   display: block;
 }
 
-/* Highlight: Gerettete Arten */
+/* === Gerettete Arten === */
 .highlight-section {
   background: white;
   padding: 4em 1em;
@@ -105,51 +106,46 @@ a:hover {
   text-align: center;
 }
 
-.highlight-box h2 {
-  font-size: 2em;
-  margin-bottom: 1em;
-}
-
-.scroll-gallery {
-  overflow: hidden;
-  position: relative;
+.carousel-gallery {
+  overflow-x: auto;
+  white-space: nowrap;
   margin: 2em 0;
+  padding-bottom: 1em;
 }
 
-.scroll-track {
+.carousel-track {
   display: flex;
-  width: max-content;
-  animation: scroll-left 30s linear infinite;
-  gap: 2em;
+  gap: 1.5em;
 }
 
-.scroll-card {
+.carousel-card {
   background: #222;
+  border-radius: 10px;
   padding: 1em;
-  border-radius: 8px;
-  min-width: 160px;
-  text-align: center;
-  flex-shrink: 0;
+  width: 150px;
+  flex: 0 0 auto;
 }
 
-.scroll-card img {
+.carousel-card img {
   width: 100%;
-  height: auto;
   border-radius: 6px;
   margin-bottom: 0.5em;
 }
 
-.scroll-card p {
-  margin: 0;
+.carousel-card p {
   font-weight: bold;
+  font-size: 1em;
+  color: white;
+  margin: 0;
 }
 
+/* === Buttons neutral === */
 .gallery-link a {
   display: inline-block;
   margin-top: 1em;
-  background: #ffcc00;
-  color: #111;
-  padding: 0.7em 1.5em;
+  background: #333;
+  color: white;
+  padding: 0.6em 1.4em;
   border-radius: 30px;
   font-weight: bold;
   text-decoration: none;
@@ -157,38 +153,18 @@ a:hover {
 }
 
 .gallery-link a:hover {
-  background: #fff000;
+  background: #555;
 }
 
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Footer */
-footer {
-  background: #111;
-  text-align: center;
-  padding: 1em;
-  font-size: 0.9em;
-  margin-top: 2em;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .scroll-card {
-    min-width: 140px;
-  }
-}
-/* === Zoo-Kooperationen Abschnitt === */
+/* === Zoo-Kooperationen === */
 .coop-section {
-  background: #fff;
+  background: white;
   padding: 4em 1em;
 }
 
 .coop-box {
-  background: #111;
-  color: white;
+  background: #fff;
+  color: #111;
   padding: 2em;
   border-radius: 10px;
   max-width: 1000px;
@@ -218,7 +194,6 @@ footer {
   height: 60px;
   max-width: 120px;
   object-fit: contain;
-  filter: brightness(1.2);
 }
 
 @keyframes scroll-right {
@@ -226,7 +201,7 @@ footer {
   100% { transform: translateX(0); }
 }
 
-/* === Pro-Zoo Argumente === */
+/* === Argumente === */
 .argumente-section {
   background: white;
   padding: 4em 1em;
@@ -242,17 +217,12 @@ footer {
   text-align: center;
 }
 
-.argumente-box h2 {
-  font-size: 2em;
-  margin-bottom: 1em;
-}
-
 .argumente-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5em;
-  text-align: left;
   margin-top: 2em;
+  text-align: left;
 }
 
 .argument {
@@ -261,18 +231,17 @@ footer {
   border-radius: 8px;
 }
 
-.argument .kritik {
+.kritik {
   font-weight: bold;
   color: #ff4d4d;
   margin-bottom: 0.5em;
 }
 
-.argument .antwort {
+.antwort {
   color: #e0e0e0;
-  margin: 0;
 }
 
-/* === Zitate Abschnitt === */
+/* === Zitate === */
 .zitate-section {
   background: white;
   padding: 4em 1em;
@@ -288,22 +257,17 @@ footer {
   text-align: center;
 }
 
-.zitate-box h2 {
-  font-size: 2em;
-  margin-bottom: 1em;
+.zitate-track {
+  display: flex;
+  gap: 3em;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
 }
 
 .zitate-scroll-gallery {
   overflow: hidden;
   position: relative;
   margin: 2em 0;
-}
-
-.zitate-track {
-  display: flex;
-  gap: 3em;
-  width: max-content;
-  animation: scroll-left 40s linear infinite;
 }
 
 .zitat {
@@ -317,11 +281,10 @@ footer {
 
 .sprechblase {
   font-style: italic;
-  margin-bottom: 1em;
-  position: relative;
   background: #333;
   padding: 1em;
   border-radius: 10px;
+  margin-bottom: 1em;
 }
 
 .autor {
@@ -337,10 +300,18 @@ footer {
   object-fit: cover;
 }
 
-/* Re-use Animation */
 @keyframes scroll-left {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* === Footer === */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+  margin-top: 2em;
 }
 
 
