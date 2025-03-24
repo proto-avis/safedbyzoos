@@ -5,7 +5,7 @@
   <title>Saved by Zoos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="img/Logo.png" type="image/png" />
+  <link rel="icon" href="img/Logo.PNG" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -25,151 +25,121 @@
 
   <!-- Header -->
   <header class="topbar">
-    <img src="img/Logo.png" alt="Saved by Zoos Logo" class="logo-small" />
+    <img src="img/Logo.PNG" alt="Saved by Zoos Logo" class="logo-large" />
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
 
-  <!-- Hauptinhalt -->
   <main>
-    <!-- Abschnitt: Gerettete Arten -->
+    <!-- Gerettete Arten -->
     <section class="highlight-section">
       <div class="highlight-box">
         <h2>Gerettete Arten</h2>
 
-        <div class="scroll-gallery">
-          <div class="scroll-track">
-            <div class="scroll-card">
+        <div class="carousel-gallery">
+          <div class="carousel-track">
+            <div class="carousel-card">
               <img src="img/wisent1.jpg" alt="Wisent" />
               <p>Wisent</p>
             </div>
-            <div class="scroll-card">
+            <div class="carousel-card">
               <img src="img/waldrapp1.jpg" alt="Waldrapp" />
               <p>Waldrapp</p>
             </div>
-            <div class="scroll-card">
+            <div class="carousel-card">
               <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
               <p>Schwarzfußiltis</p>
             </div>
-            <!-- Weitere Tiere hier -->
+            <!-- Weitere Tierkarten -->
           </div>
         </div>
 
         <div class="gallery-link">
-          <a href="index.html">Zeig sie mir</a>
+          <a href="index.html">Zur Galerie</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zoo-Kooperationen -->
+    <section class="coop-section">
+      <div class="coop-box">
+        <h2>Zoo-Kooperationen</h2>
+
+        <div class="coop-scroll-gallery">
+          <div class="coop-track">
+            <a href="https://www.worldwildlife.org/" target="_blank" class="coop-logo">
+              <img src="img/logo-wwf.png" alt="WWF" />
+            </a>
+            <a href="https://www.greenpeace.org/" target="_blank" class="coop-logo">
+              <img src="img/logo-greenpeace.png" alt="Greenpeace" />
+            </a>
+            <a href="https://www.nabu.de/" target="_blank" class="coop-logo">
+              <img src="img/logo-nabu.png" alt="NABU" />
+            </a>
+          </div>
+        </div>
+
+        <div class="gallery-link">
+          <a href="unterstuetzer.html">Mehr Kooperationen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pro-Zoo Argumente -->
+    <section class="argumente-section">
+      <div class="argumente-box">
+        <h2>Warum Zoos wichtig sind</h2>
+        <div class="argumente-grid">
+          <div class="argument">
+            <p class="kritik">„Zoos sind Tiergefängnisse.“</p>
+            <p class="antwort">Moderne Zoos bieten artgerechte, sichere Lebensräume für bedrohte Arten.</p>
+          </div>
+          <div class="argument">
+            <p class="kritik">„Tiere gehören in die Wildnis.“</p>
+            <p class="antwort">Viele Arten hätten ohne Zoos keine überlebensfähige Wildpopulation mehr.</p>
+          </div>
+          <div class="argument">
+            <p class="kritik">„Zoos dienen nur der Unterhaltung.“</p>
+            <p class="antwort">Sie leisten aktive Forschung, Bildung und Arterhaltungsarbeit weltweit.</p>
+          </div>
+          <div class="argument">
+            <p class="kritik">„Nachzuchten landen nicht in der Natur.“</p>
+            <p class="antwort">Wiederauswilderung braucht Zeit – Zoos bereiten Populationen gezielt vor.</p>
+          </div>
+        </div>
+        <div class="gallery-link">
+          <a href="zookritik.html">Mehr Argumente anzeigen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zitate -->
+    <section class="zitate-section">
+      <div class="zitate-box">
+        <h2>Stimmen für Zoos</h2>
+        <div class="zitate-scroll-gallery">
+          <div class="zitate-track">
+            <div class="zitat">
+              <div class="sprechblase">„Nur wer schützt, kann bewahren.“</div>
+              <div class="autor">
+                <img src="img/attenborough.jpg" alt="David Attenborough" />
+                <div><strong>David Attenborough</strong><br>Dokumentarfilmer</div>
+              </div>
+            </div>
+            <div class="zitat">
+              <div class="sprechblase">„Artenschutz beginnt mit Verständnis.“</div>
+              <div class="autor">
+                <img src="img/godall.jpg" alt="Jane Goodall" />
+                <div><strong>Jane Goodall</strong><br>Verhaltensforscherin</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-link">
+          <a href="zitate.html">Alle Zitate ansehen</a>
         </div>
       </div>
     </section>
   </main>
-
-  <!-- Abschnitt: Zoo-Kooperationen -->
-<section class="coop-section">
-  <div class="coop-box">
-    <h2>Zoo-Kooperationen</h2>
-
-    <div class="coop-scroll-gallery">
-      <div class="coop-track">
-        <a href="https://www.worldwildlife.org/" target="_blank" class="coop-logo">
-          <img src="img/logo-wwf.png" alt="WWF" />
-        </a>
-        <a href="https://www.greenpeace.org/" target="_blank" class="coop-logo">
-          <img src="img/logo-greenpeace.png" alt="Greenpeace" />
-        </a>
-        <a href="https://www.nabu.de/" target="_blank" class="coop-logo">
-          <img src="img/logo-nabu.png" alt="NABU" />
-        </a>
-        <!-- Weitere Logos hier -->
-      </div>
-    </div>
-
-    <div class="gallery-link">
-      <a href="unterstuetzer.html">Mehr Kooperationen</a>
-    </div>
-  </div>
-</section>
-
-  <!-- Abschnitt: Pro-Zoo Argumente -->
-<section class="argumente-section">
-  <div class="argumente-box">
-    <h2>Warum Zoos wichtig sind</h2>
-
-    <div class="argumente-grid">
-      <div class="argument">
-        <p class="kritik">„Zoos sind Tiergefängnisse.“</p>
-        <p class="antwort">Moderne Zoos bieten artgerechte, sichere Lebensräume für bedrohte Arten.</p>
-      </div>
-      <div class="argument">
-        <p class="kritik">„Tiere gehören in die Wildnis.“</p>
-        <p class="antwort">Viele Arten hätten ohne Zoos keine überlebensfähige Wildpopulation mehr.</p>
-      </div>
-      <div class="argument">
-        <p class="kritik">„Zoos dienen nur der Unterhaltung.“</p>
-        <p class="antwort">Sie leisten aktive Forschung, Bildung und Arterhaltungsarbeit weltweit.</p>
-      </div>
-      <div class="argument">
-        <p class="kritik">„Nachzuchten landen nicht in der Natur.“</p>
-        <p class="antwort">Wiederauswilderung braucht Zeit – Zoos bereiten Populationen gezielt vor.</p>
-      </div>
-      <div class="argument">
-        <p class="kritik">„Zoos sind unnatürlich.“</p>
-        <p class="antwort">Auch Schutzgebiete sind menschengemacht – Hauptsache: Überleben sichern.</p>
-      </div>
-    </div>
-
-    <div class="gallery-link">
-      <a href="zookritik.html">Mehr Argumente anzeigen</a>
-    </div>
-  </div>
-</section>
-<!-- Abschnitt: Zitate -->
-<section class="zitate-section">
-  <div class="zitate-box">
-    <h2>Stimmen zum Artenschutz</h2>
-
-    <div class="zitate-scroll-gallery">
-      <div class="zitate-track">
-
-        <div class="zitat">
-          <div class="sprechblase">„Nur wer schützt, kann bewahren.“</div>
-          <div class="autor">
-            <img src="img/attenborough.jpg" alt="David Attenborough" />
-            <div>
-              <strong>David Attenborough</strong><br>
-              Dokumentarfilmer
-            </div>
-          </div>
-        </div>
-
-        <div class="zitat">
-          <div class="sprechblase">„Artenschutz beginnt mit Verständnis.“</div>
-          <div class="autor">
-            <img src="img/godall.jpg" alt="Jane Goodall" />
-            <div>
-              <strong>Jane Goodall</strong><br>
-              Verhaltensforscherin
-            </div>
-          </div>
-        </div>
-
-        <div class="zitat">
-          <div class="sprechblase">„Zoos sind oberaffentittengeil.“</div>
-          <div class="autor">
-            <img src="img/lehmann.jpg" alt="Robert Marc Lehmann" />
-            <div>
-              <strong>Robert Marc Lehmann</strong><br>
-              Meeresbiologe
-            </div>
-          </div>
-        </div>
-
-        <!-- Weitere Zitate -->
-      </div>
-    </div>
-
-    <div class="gallery-link">
-      <a href="zitate.html">Alle Zitate ansehen</a>
-    </div>
-  </div>
-</section>
 
   <footer>
     <p>© 2025 Saved by Zoos – Alle Rechte vorbehalten.</p>
@@ -187,15 +157,10 @@
       document.querySelector(".overlay").classList.remove("show");
     }
 
-    // Swipe zum Schließen
     document.addEventListener("touchstart", handleTouchStart, false);
     document.addEventListener("touchend", handleTouchEnd, false);
     let startX = null;
-
-    function handleTouchStart(e) {
-      startX = e.changedTouches[0].clientX;
-    }
-
+    function handleTouchStart(e) { startX = e.changedTouches[0].clientX; }
     function handleTouchEnd(e) {
       if (!startX) return;
       let endX = e.changedTouches[0].clientX;
@@ -205,4 +170,5 @@
   </script>
 </body>
 </html>
+
 
