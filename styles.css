@@ -25,7 +25,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* === Logo === */
+/* === Logo Header + Topbar === */
 .logo {
   text-align: center;
 }
@@ -38,62 +38,73 @@ a:hover {
   display: block;
 }
 
-/* === Navigation === */
-nav {
+.logo-small {
+  height: 40px;
+}
+
+/* === Neue Sticky Headerleiste === */
+.topbar {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: #111;
-}
-
-nav ul {
+  background: #000;
+  color: white;
   display: flex;
-  justify-content: center;
-  gap: 2em;
-  list-style: none;
-  padding: 1em 0;
-  margin: 0;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  z-index: 1000;
 }
 
-nav ul li a {
-  color: white;
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-/* === Filterbereich === */
-#filter-container {
-  text-align: center;
-  margin-top: 1em;
-}
-
-#filter-toggle {
-  background: #222;
-  color: white;
-  border: 1px solid #444;
-  padding: 0.5em 1em;
-  font-size: 1em;
+.menu-icon {
+  font-size: 2em;
   cursor: pointer;
 }
 
-#filter-controls {
-  display: none;
-  margin-top: 1em;
+/* === Off-Canvas Menü === */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -75%;
+  width: 75%;
+  height: 100%;
+  background: #111;
+  z-index: 999;
+  padding: 2em 1.5em;
+  transition: right 0.3s ease;
 }
 
-#filter-controls.show {
-  display: block;
+.offcanvas-menu.open {
+  right: 0;
 }
 
-#filter-controls input,
-#filter-controls select {
-  padding: 0.5em;
-  font-size: 1.2em;
-  margin: 0.5em;
-  background: #1a1a1a;
+.offcanvas-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.offcanvas-menu li {
+  margin-bottom: 1.5em;
+}
+
+.offcanvas-menu a {
   color: white;
-  border: 1px solid #444;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+/* === Overlay === */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 998;
+}
+
+.overlay.show {
+  display: block;
 }
 
 /* === Galerie === */
@@ -109,7 +120,7 @@ nav ul li a {
   padding: 1em;
   border-radius: 10px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
@@ -154,7 +165,7 @@ nav ul li a {
 
 .fact-box:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 10px #ffffff;
+  box-shadow: none;
 }
 
 .fact-box strong {
@@ -200,6 +211,12 @@ footer {
   .fact-box strong {
     font-size: 2em;
   }
+}
+
+/* === Platzhalter für Home === */
+.placeholder {
+  padding: 6em 2em;
+  text-align: center;
 }
 
 
