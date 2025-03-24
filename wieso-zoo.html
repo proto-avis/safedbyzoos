@@ -65,15 +65,21 @@
 
   <section class="fact-section">
     <div class="fact-box" id="turtles">
-      🐢 <strong id="turtleCount">0%</strong> aller Schildkrötenarten sind bedroht.
+      <strong id="turtleCount">0%</strong>aller Schildkrötenarten sind bedroht.
+    </div>
+
+    <div class="fact-box"><strong>27%</strong>aller Säugetierarten sind bedroht.</div>
+    <div class="fact-box"><strong>41%</strong>aller Amphibienarten sind bedroht.</div>
+    <div class="fact-box"><strong>21%</strong>aller Reptilienarten sind bedroht.</div>
+    <div class="fact-box"><strong>13%</strong>aller Vogelarten sind bedroht.</div>
+    <div class="fact-box"><strong>10%</strong>aller Insektenarten sind bedroht.</div>
+
+    <div class="fact-box">
+      <strong id="rainforestCount">0 m²</strong>Regenwald wurden heute zerstört.
     </div>
 
     <div class="fact-box">
-      🌱 <strong id="rainforestCount">0</strong> m² Regenwald wurden heute zerstört.
-    </div>
-
-    <div class="fact-box">
-      ☠️ <strong id="speciesCount">0</strong> Arten sind heute bereits ausgestorben.
+      <strong id="speciesCount">0 Arten</strong>sind heute bereits ausgestorben.
     </div>
   </section>
 
@@ -83,7 +89,7 @@
   </footer>
 
   <script>
-    // Schildkröten-Zähler (einmalig animiert auf 60%)
+    // Schildkröten-Zähler langsamer animieren (auf 60%)
     const turtle = document.getElementById("turtleCount");
     let turtleAnimated = false;
     window.addEventListener("scroll", () => {
@@ -95,7 +101,7 @@
           count++;
           turtle.textContent = count + "%";
           if (count >= 60) clearInterval(interval);
-        }, 20);
+        }, 50); // Langsamer (50ms statt 20ms)
       }
     });
 
@@ -111,11 +117,11 @@
       const seconds = getSecondsToday();
 
       // Regenwald: 130 m² pro Sekunde
-      const rainforest = Math.floor(seconds * 130).toLocaleString();
+      const rainforest = Math.floor(seconds * 130).toLocaleString() + " m²";
       document.getElementById("rainforestCount").textContent = rainforest;
 
-      // Arten: 140 pro Tag → ≈ 0.0016 pro Sekunde
-      const species = (seconds * (140 / 86400)).toFixed(0);
+      // Arten: 140 pro Tag ≈ 0.0016 pro Sekunde
+      const species = Math.floor(seconds * (140 / 86400)) + " Arten";
       document.getElementById("speciesCount").textContent = species;
     }
 
@@ -124,3 +130,4 @@
   </script>
 </body>
 </html>
+
