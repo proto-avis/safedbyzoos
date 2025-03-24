@@ -10,14 +10,15 @@
   <style>
     body {
       font-family: 'League Spartan', sans-serif;
+      color: white;
     }
 
     .fact-section {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2em;
       padding: 3em 2em;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
 
@@ -26,7 +27,7 @@
       padding: 2em;
       border-radius: 10px;
       text-align: center;
-      font-size: 1.6em;
+      font-size: 1.4em;
       font-weight: 500;
     }
 
@@ -39,8 +40,9 @@
 
     @media (max-width: 600px) {
       .fact-box {
-        font-size: 1.3em;
+        font-size: 1.2em;
       }
+
       .fact-box strong {
         font-size: 2em;
       }
@@ -64,20 +66,27 @@
   </header>
 
   <section class="fact-section">
-    <div class="fact-box" id="turtles">
-      <strong id="turtleCount">0%</strong>aller Schildkrötenarten sind bedroht.
+    <div class="fact-box" data-target="60">
+      <strong>0%</strong>aller Schildkrötenarten sind bedroht.
     </div>
-
-    <div class="fact-box"><strong>27%</strong>aller Säugetierarten sind bedroht.</div>
-    <div class="fact-box"><strong>41%</strong>aller Amphibienarten sind bedroht.</div>
-    <div class="fact-box"><strong>21%</strong>aller Reptilienarten sind bedroht.</div>
-    <div class="fact-box"><strong>32%</strong>aller Vogelarten sind bedroht.</div>
-    <div class="fact-box"><strong>40%</strong>aller Insektenarten sind bedroht.</div>
-
+    <div class="fact-box" data-target="27">
+      <strong>0%</strong>aller Säugetierarten sind bedroht.
+    </div>
+    <div class="fact-box" data-target="41">
+      <strong>0%</strong>aller Amphibienarten sind bedroht.
+    </div>
+    <div class="fact-box" data-target="21">
+      <strong>0%</strong>aller Reptilienarten sind bedroht.
+    </div>
+    <div class="fact-box" data-target="32">
+      <strong>0%</strong>aller Vogelarten sind bedroht.
+    </div>
+    <div class="fact-box" data-target="40">
+      <strong>0%</strong>aller Insektenarten sind bedroht.
+    </div>
     <div class="fact-box">
       <strong id="rainforestCount">0 m²</strong>Regenwald wurden heute zerstört.
     </div>
-
     <div class="fact-box">
       <strong id="speciesCount">0 Arten</strong>sind heute bereits ausgestorben.
     </div>
@@ -89,20 +98,26 @@
   </footer>
 
   <script>
-    // Schildkröten-Zähler langsamer animieren (auf 60%)
-    const turtle = document.getElementById("turtleCount");
-    let turtleAnimated = false;
-    window.addEventListener("scroll", () => {
-      const top = turtle.getBoundingClientRect().top;
-      if (!turtleAnimated && top < window.innerHeight) {
-        turtleAnimated = true;
-        let count = 0;
-        const interval = setInterval(() => {
-          count++;
-          turtle.textContent = count + "%";
-          if (count >= 60) clearInterval(interval);
-        }, 50); // Langsamer (50ms statt 20ms)
-      }
+    // Prozent-Zähler beim Scrollen animieren
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const box = entry.target;
+          const target = parseInt(box.getAttribute("data-target"));
+          const valueDisplay = box.querySelector("strong");
+          let count = 0;
+          const interval = setInterval(() => {
+            count++;
+            valueDisplay.textContent = count + "%";
+            if (count >= target) clearInterval(interval);
+          }, 50);
+          observer.unobserve(box);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll(".fact-box[data-target]").forEach((box) => {
+      observer.observe(box);
     });
 
     // Zeit seit Mitternacht
@@ -115,18 +130,12 @@
     // Live-Zähler
     function updateLiveCounters() {
       const seconds = getSecondsToday();
-
-      // Regenwald: 130 m² pro Sekunde
-      const rainforest = Math.floor(seconds * 130).toLocaleString() + " m²";
-      document.getElementById("rainforestCount").textContent = rainforest;
-
-      // Arten: 140 pro Tag ≈ 0.0016 pro Sekunde
-      const species = Math.floor(seconds * (140 / 86400)) + " Arten";
-      document.getElementById("speciesCount").textContent = species;
+      document.getElementById("rainforestCount").textContent = (seconds * 130).toLocaleString() + " m²";
+      document.getElementById("speciesCount").textContent = Math.floor(seconds * (140 / 86400)) + " Arten";
     }
 
     updateLiveCounters();
-    setInterval(updateLiveCounters, 10000); // Alle 10 Sekunden aktualisieren
+    setInterval(updateLiveCounters, 10000);
   </script>
 </body>
 </html>
