@@ -31,9 +31,33 @@
 
   <!-- Hauptinhalt -->
   <main>
-    <section class="placeholder">
-      <h1>Startseite im Aufbau 🛠️</h1>
-      <p>Hier entsteht die neue mobile Version von „Saved by Zoos“.</p>
+    <!-- Abschnitt: Gerettete Arten -->
+    <section class="highlight-section">
+      <div class="highlight-box">
+        <h2>Gerettete Arten</h2>
+
+        <div class="scroll-gallery">
+          <div class="scroll-track">
+            <div class="scroll-card">
+              <img src="img/wisent1.jpg" alt="Wisent" />
+              <p>Wisent</p>
+            </div>
+            <div class="scroll-card">
+              <img src="img/waldrapp1.jpg" alt="Waldrapp" />
+              <p>Waldrapp</p>
+            </div>
+            <div class="scroll-card">
+              <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
+              <p>Schwarzfußiltis</p>
+            </div>
+            <!-- Weitere Tiere hier -->
+          </div>
+        </div>
+
+        <div class="gallery-link">
+          <a href="index.html">Zeig sie mir</a>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -53,7 +77,7 @@
       document.querySelector(".overlay").classList.remove("show");
     }
 
-    // Swipe schließen (nur rudimentär, kann erweitert werden)
+    // Swipe zum Schließen
     document.addEventListener("touchstart", handleTouchStart, false);
     document.addEventListener("touchend", handleTouchEnd, false);
     let startX = null;
@@ -65,9 +89,10 @@
     function handleTouchEnd(e) {
       if (!startX) return;
       let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) closeMenu(); // Swipe left
+      if (startX - endX > 50) closeMenu();
       startX = null;
     }
   </script>
 </body>
 </html>
+
