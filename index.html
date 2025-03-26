@@ -30,34 +30,74 @@
   </header>
 
   <main>
-    <!-- Gerettete Arten -->
-    <section class="highlight-section">
-      <div class="highlight-box">
-        <h2>Gerettete Arten</h2>
+   <!-- Abschnitt: Gerettete Arten -->
+<section class="highlight-section">
+  <div class="highlight-box">
+    <h2>Gerettete Arten</h2>
 
-        <div class="carousel-gallery">
-          <div class="carousel-track">
-            <div class="carousel-card">
-              <img src="img/wisent1.jpg" alt="Wisent" />
-              <p>Wisent</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/waldrapp1.jpg" alt="Waldrapp" />
-              <p>Waldrapp</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
-              <p>Schwarzfußiltis</p>
-            </div>
-            <!-- Weitere Tierkarten -->
-          </div>
+    <div class="carousel-wrapper">
+      <div class="carousel-inner" id="tierKarussell">
+        <!-- Tierkarten -->
+        <div class="carousel-card">
+          <img src="img/wisent1.jpg" alt="Wisent" />
+          <p>Wisent</p>
         </div>
-
-        <div class="gallery-link">
-          <a href="index.html">Zur Galerie</a>
+        <div class="carousel-card">
+          <img src="img/waldrapp1.jpg" alt="Waldrapp" />
+          <p>Waldrapp</p>
         </div>
+        <div class="carousel-card">
+          <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
+          <p>Schwarzfußiltis</p>
+        </div>
+        <div class="carousel-card">
+          <img src="img/oryx1.jpg" alt="Arabische Oryx" />
+          <p>Arabische Oryx</p>
+        </div>
+        <div class="carousel-card">
+          <img src="img/kondor1.jpg" alt="Kalifornischer Kondor" />
+          <p>Kalifornischer Kondor</p>
+        </div>
+        <div class="carousel-card">
+          <img src="img/loewen1.jpg" alt="Goldenes Löwenäffchen" />
+          <p>Goldenes Löwenäffchen</p>
+        </div>
+        <div class="carousel-card">
+          <img src="img/baumhummer1.jpg" alt="Baumhummer" />
+          <p>Baumhummer</p>
+        </div>
+        <!-- Wird automatisch verdoppelt -->
       </div>
-    </section>
+    </div>
+
+    <div class="gallery-link">
+      <a href="index.html">Zur Galerie</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const track = document.getElementById('tierKarussell');
+  track.innerHTML += track.innerHTML; // Duplizieren für Endlos-Loop
+
+  // Zufälliger Start
+  const offset = Math.floor(Math.random() * (track.scrollWidth / 2));
+  track.style.transform = `translateX(-${offset}px)`;
+
+  let paused = false;
+  track.addEventListener("mouseenter", () => paused = true);
+  track.addEventListener("mouseleave", () => paused = false);
+
+  function animateLoop() {
+    if (!paused) {
+      const current = parseFloat(track.style.transform.replace('translateX(', '').replace('px)', '')) || 0;
+      track.style.transform = `translateX(${current - 0.6}px)`;
+    }
+    requestAnimationFrame(animateLoop);
+  }
+
+  requestAnimationFrame(animateLoop);
+</script>
 
     <!-- Zoo-Kooperationen -->
     <section class="coop-section">
