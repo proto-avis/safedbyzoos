@@ -30,43 +30,43 @@
   </header>
 
   <main>
-   <!-- Abschnitt: Gerettete Arten -->
+ <!-- Abschnitt: Gerettete Arten -->
 <section class="highlight-section">
   <div class="highlight-box">
     <h2>Gerettete Arten</h2>
 
     <div class="carousel-wrapper">
       <div class="carousel-inner" id="tierKarussell">
-        <!-- Tierkarten -->
-        <div class="carousel-card">
-          <img src="img/wisent1.jpg" alt="Wisent" />
-          <p>Wisent</p>
+        <div class="carousel-track">
+          <div class="carousel-card">
+            <img src="img/wisent1.jpg" alt="Wisent" />
+            <p>Wisent</p>
+          </div>
+          <div class="carousel-card">
+            <img src="img/waldrapp1.jpg" alt="Waldrapp" />
+            <p>Waldrapp</p>
+          </div>
+          <div class="carousel-card">
+            <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
+            <p>Schwarzfußiltis</p>
+          </div>
+          <div class="carousel-card">
+            <img src="img/oryx1.jpg" alt="Arabische Oryx" />
+            <p>Arabische Oryx</p>
+          </div>
+          <div class="carousel-card">
+            <img src="img/kondor1.jpg" alt="Kalifornischer Kondor" />
+            <p>Kalifornischer Kondor</p>
+          </div>
+          <div class="carousel-card">
+            <img src="img/loewen1.jpg" alt="Goldenes Löwenäffchen" />
+            <p>Goldenes Löwenäffchen</p>
+          </div>
+          <div class="carousel-card">
+            <img src="img/baumhummer1.jpg" alt="Baumhummer" />
+            <p>Baumhummer</p>
+          </div>
         </div>
-        <div class="carousel-card">
-          <img src="img/waldrapp1.jpg" alt="Waldrapp" />
-          <p>Waldrapp</p>
-        </div>
-        <div class="carousel-card">
-          <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
-          <p>Schwarzfußiltis</p>
-        </div>
-        <div class="carousel-card">
-          <img src="img/oryx1.jpg" alt="Arabische Oryx" />
-          <p>Arabische Oryx</p>
-        </div>
-        <div class="carousel-card">
-          <img src="img/kondor1.jpg" alt="Kalifornischer Kondor" />
-          <p>Kalifornischer Kondor</p>
-        </div>
-        <div class="carousel-card">
-          <img src="img/loewen1.jpg" alt="Goldenes Löwenäffchen" />
-          <p>Goldenes Löwenäffchen</p>
-        </div>
-        <div class="carousel-card">
-          <img src="img/baumhummer1.jpg" alt="Baumhummer" />
-          <p>Baumhummer</p>
-        </div>
-        <!-- Wird automatisch verdoppelt -->
       </div>
     </div>
 
@@ -77,8 +77,39 @@
 </section>
 
 <script>
-  const track = document.getElementById('tierKarussell');
-  track.innerHTML += track.innerHTML; // Duplizieren für Endlos-Loop
+  const inner = document.querySelector('.carousel-inner');
+  const track = document.querySelector('.carousel-track');
+
+  // Duplizieren für Endlos-Loop
+  track.innerHTML += track.innerHTML;
+
+  // Zufälliger Start
+  const cardWidth = track.children[0].offsetWidth + 24; // Breite + gap
+  const randomIndex = Math.floor(Math.random() * track.children.length / 2);
+  let position = randomIndex * cardWidth;
+  track.style.transform = `translateX(-${position}px)`;
+
+  // Auto-Scroll
+  let speed = 0.5;
+  let pause = false;
+
+  inner.addEventListener("mouseenter", () => pause = true);
+  inner.addEventListener("mouseleave", () => pause = false);
+
+  function loopScroll() {
+    if (!pause) {
+      position += speed;
+      if (position >= track.scrollWidth / 2) {
+        position = 0;
+      }
+      track.style.transform = `translateX(-${position}px)`;
+    }
+    requestAnimationFrame(loopScroll);
+  }
+
+  requestAnimationFrame(loopScroll);
+</script>
+
 
   // Zufälliger Start
   const offset = Math.floor(Math.random() * (track.scrollWidth / 2));
