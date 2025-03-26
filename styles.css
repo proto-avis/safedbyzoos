@@ -357,3 +357,43 @@ footer {
   margin: 0;
 }
 
+.carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 1em;
+}
+
+.carousel-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5em;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.carousel-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1em;
+  width: 150px;
+  flex: 0 0 auto;
+}
+
+.carousel-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
+
+.carousel-card p {
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  margin: 0;
+}
+
+
