@@ -1,233 +1,434 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <title>Saved by Zoos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="img/Logo.PNG" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-  <!-- Overlay -->
-  <div class="overlay" onclick="closeMenu()"></div>
+html {
+  scroll-behavior: smooth;
+}
 
-  <!-- Off-Canvas-Menü -->
-  <nav class="offcanvas-menu" id="menu">
-    <ul>
-      <li><a href="wieso-zoo.html">Wieso Zoos</a></li>
-      <li><a href="index.html">Gerettete Arten</a></li>
-      <li><a href="unterstuetzer.html">Organisationen</a></li>
-      <li><a href="zitate.html">Zitate</a></li>
-      <li><a href="zookritik.html">Zookritik</a></li>
-    </ul>
-  </nav>
+body {
+  font-family: 'League Spartan', sans-serif;
+  background-color: #0d0d0d;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
 
-  <!-- Header -->
-  <header class="topbar">
-    <img src="img/Logo.PNG" alt="Saved by Zoos Logo" class="logo-large" />
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-  </header>
+h1, h2, h3 {
+  margin: 0.5em 0;
+}
 
-  <main>
-    <!-- Gerettete Arten -->
-    <section class="highlight-section">
-      <div class="highlight-box">
-        <h2>Gerettete Arten</h2>
+a {
+  color: white;
+  text-decoration: none;
+}
 
-        <div class="carousel-wrapper" id="carouselWrapper">
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-card">
-              <img src="img/wisent1.jpg" alt="Wisent" />
-              <p>Wisent</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/waldrapp1.jpg" alt="Waldrapp" />
-              <p>Waldrapp</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
-              <p>Schwarzfußiltis</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/oryx1.jpg" alt="Arabische Oryx" />
-              <p>Arabische Oryx</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/kondor1.jpg" alt="Kalifornischer Kondor" />
-              <p>Kalifornischer Kondor</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/loewen1.jpg" alt="Goldenes Löwenäffchen" />
-              <p>Goldenes Löwenäffchen</p>
-            </div>
-            <div class="carousel-card">
-              <img src="img/baumhummer1.jpg" alt="Baumhummer" />
-              <p>Baumhummer</p>
-            </div>
-          </div>
-        </div>
+a:hover {
+  text-decoration: underline;
+}
 
-        <div class="gallery-link">
-          <a href="index.html">Zur Galerie</a>
-        </div>
-      </div>
-    </section>
+/* === Header & Menü === */
+.logo-large {
+  height: 50px;
+  max-height: 10vh;
+  object-fit: contain;
+}
 
-    <!-- Zoo-Kooperationen -->
-    <section class="coop-section">
-      <div class="coop-box">
-        <h2>Zoo-Kooperationen</h2>
-        <div class="coop-scroll-gallery">
-          <div class="coop-track">
-            <a href="https://www.worldwildlife.org/" target="_blank" class="coop-logo">
-              <img src="img/logo-wwf.png" alt="WWF" />
-            </a>
-            <a href="https://www.greenpeace.org/" target="_blank" class="coop-logo">
-              <img src="img/logo-greenpeace.png" alt="Greenpeace" />
-            </a>
-            <a href="https://www.nabu.de/" target="_blank" class="coop-logo">
-              <img src="img/logo-nabu.png" alt="NABU" />
-            </a>
-          </div>
-        </div>
-        <div class="gallery-link">
-          <a href="unterstuetzer.html">Mehr Kooperationen</a>
-        </div>
-      </div>
-    </section>
+.topbar {
+  position: sticky;
+  top: 0;
+  background: #000;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  z-index: 1000;
+}
 
-    <!-- Argumente -->
-    <section class="argumente-section">
-      <div class="argumente-box">
-        <h2>Warum Zoos wichtig sind</h2>
-        <div class="argumente-grid">
-          <div class="argument">
-            <p class="kritik">„Zoos sind Tiergefängnisse.“</p>
-            <p class="antwort">Moderne Zoos bieten artgerechte, sichere Lebensräume für bedrohte Arten.</p>
-          </div>
-          <div class="argument">
-            <p class="kritik">„Tiere gehören in die Wildnis.“</p>
-            <p class="antwort">Viele Arten hätten ohne Zoos keine überlebensfähige Wildpopulation mehr.</p>
-          </div>
-          <div class="argument">
-            <p class="kritik">„Zoos dienen nur der Unterhaltung.“</p>
-            <p class="antwort">Sie leisten aktive Forschung, Bildung und Arterhaltungsarbeit weltweit.</p>
-          </div>
-          <div class="argument">
-            <p class="kritik">„Nachzuchten landen nicht in der Natur.“</p>
-            <p class="antwort">Wiederauswilderung braucht Zeit – Zoos bereiten Populationen gezielt vor.</p>
-          </div>
-        </div>
-        <div class="gallery-link">
-          <a href="zookritik.html">Mehr Argumente anzeigen</a>
-        </div>
-      </div>
-    </section>
+.menu-icon {
+  font-size: 2em;
+  cursor: pointer;
+}
 
-    <!-- Zitate -->
-    <section class="zitate-section">
-      <div class="zitate-box">
-        <h2>Stimmen für Zoos</h2>
-        <div class="zitate-scroll-gallery">
-          <div class="zitate-track">
-            <div class="zitat">
-              <div class="sprechblase">„Nur wer schützt, kann bewahren.“</div>
-              <div class="autor">
-                <img src="img/attenborough.jpg" alt="David Attenborough" />
-                <div><strong>David Attenborough</strong><br>Dokumentarfilmer</div>
-              </div>
-            </div>
-            <div class="zitat">
-              <div class="sprechblase">„Artenschutz beginnt mit Verständnis.“</div>
-              <div class="autor">
-                <img src="img/godall.jpg" alt="Jane Goodall" />
-                <div><strong>Jane Goodall</strong><br>Verhaltensforscherin</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-link">
-          <a href="zitate.html">Alle Zitate ansehen</a>
-        </div>
-      </div>
-    </section>
-  </main>
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  max-height: calc(100vh - 2em);
+  overflow-y: auto;
+  background: #111;
+  z-index: 999;
+  padding: 5em 1.5em 2em;
+  transition: right 0.3s ease;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.5);
+}
 
-  <footer>
-    <p>© 2025 Saved by Zoos – Alle Rechte vorbehalten.</p>
-    <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
-  </footer>
+.offcanvas-menu.open {
+  right: 0;
+}
 
-  <!-- Menü-Steuerung -->
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("open");
-      document.querySelector(".overlay").classList.toggle("show");
-    }
+.offcanvas-menu ul {
+  list-style: none;
+  padding: 0;
+}
 
-    function closeMenu() {
-      document.getElementById("menu").classList.remove("open");
-      document.querySelector(".overlay").classList.remove("show");
-    }
+.offcanvas-menu li {
+  margin-bottom: 1.5em;
+}
 
-    document.addEventListener("touchstart", handleTouchStart, false);
-    document.addEventListener("touchend", handleTouchEnd, false);
-    let startX = null;
-    function handleTouchStart(e) { startX = e.changedTouches[0].clientX; }
-    function handleTouchEnd(e) {
-      if (!startX) return;
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) closeMenu();
-      startX = null;
-    }
-  </script>
+.offcanvas-menu a {
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+}
 
-  <!-- Karussell Auto-Scroll -->
-  <script>
-    const wrapper = document.getElementById('carouselWrapper');
-    const track = document.getElementById('carouselTrack');
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 998;
+}
 
-    track.innerHTML += track.innerHTML;
+.overlay.show {
+  display: block;
+}
 
-    const cardWidth = track.children[0].offsetWidth + 24;
-    let position = Math.floor(Math.random() * (track.children.length / 2)) * cardWidth;
-    track.scrollLeft = position;
+/* === Gerettete Arten === */
+.highlight-section {
+  background: white;
+  padding: 2.5em 1em;
+}
 
-    let paused = false;
-    let lastScroll = track.scrollLeft;
+.highlight-box {
+  background: #111;
+  color: white;
+  padding: 1.5em;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
 
-    wrapper.addEventListener("mouseenter", () => paused = true);
-    wrapper.addEventListener("mouseleave", () => paused = false);
-    wrapper.addEventListener("touchstart", () => paused = true);
-    wrapper.addEventListener("touchend", () => {
-      paused = false;
-      lastScroll = track.scrollLeft;
-    });
+.carousel-gallery {
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 2em 0;
+  padding-bottom: 1em;
+}
 
-    let autoResume;
-    track.addEventListener("scroll", () => {
-      if (Math.abs(track.scrollLeft - lastScroll) > 2) {
-        paused = true;
-        clearTimeout(autoResume);
-        autoResume = setTimeout(() => paused = false, 2000);
-      }
-      lastScroll = track.scrollLeft;
-    });
+.carousel-track {
+  display: flex;
+  gap: 1.5em;
+}
 
-    function autoScroll() {
-      if (!paused) {
-        track.scrollLeft += 0.6;
-        if (track.scrollLeft >= track.scrollWidth / 2) {
-          track.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(autoScroll);
-    }
+.carousel-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1em;
+  width: 150px;
+  flex: 0 0 auto;
+}
 
-    requestAnimationFrame(autoScroll);
-  </script>
-</body>
-</html>
+.carousel-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
 
+.carousel-card p {
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  margin: 0;
+}
 
+/* === Buttons neutral === */
+.gallery-link a {
+  display: inline-block;
+  margin-top: 1em;
+  background: #333;
+  color: white;
+  padding: 0.6em 1.4em;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.gallery-link a:hover {
+  background: #555;
+}
+
+/* === Zoo-Kooperationen === */
+.coop-section {
+  background: white;
+  padding: 2.5em 1em;
+}
+
+.coop-box {
+  background: #fff;
+  color: #111;
+  padding: 1.5em;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.coop-box h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.coop-scroll-gallery {
+  overflow: hidden;
+  position: relative;
+  margin: 2em 0;
+}
+
+.coop-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-right 35s linear infinite;
+  gap: 2em;
+}
+
+.coop-logo img {
+  height: 60px;
+  max-width: 120px;
+  object-fit: contain;
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* === Argumente === */
+.argumente-section {
+  background: white;
+  padding: 2.5em 1em;
+}
+
+.argumente-box {
+  background: #111;
+  color: white;
+  padding: 1.5em;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.argumente-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+  text-align: left;
+}
+
+.argument {
+  background: #222;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+.kritik {
+  font-weight: bold;
+  color: #ff4d4d;
+  margin-bottom: 0.5em;
+}
+
+.antwort {
+  color: #e0e0e0;
+}
+
+/* === Zitate === */
+.zitate-section {
+  background: white;
+  padding: 2.5em 1em;
+}
+
+.zitate-box {
+  background: #111;
+  color: white;
+  padding: 1.5em;
+  border-radius: 10px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+.zitate-box h2 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.zitate-scroll-gallery {
+  overflow: hidden;
+  position: relative;
+  margin: 2em 0;
+}
+
+.zitate-track {
+  display: flex;
+  gap: 3em;
+  width: max-content;
+  animation: scroll-left 40s linear infinite;
+}
+
+.zitat {
+  min-width: 250px;
+  max-width: 300px;
+  background: #222;
+  padding: 1em;
+  border-radius: 10px;
+  position: relative;
+}
+
+.sprechblase {
+  font-style: italic;
+  background: #333;
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+
+.autor {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.autor img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* === Footer === */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+  margin-top: 2em;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 1em;
+}
+
+.carousel-inner {
+  display: flex;
+  gap: 1.5em;
+  will-change: transform;
+}
+
+.carousel-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1em;
+  width: 150px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.carousel-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
+
+.carousel-card p {
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  margin: 0;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 1em;
+}
+
+.carousel-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5em;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.carousel-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1em;
+  width: 150px;
+  flex: 0 0 auto;
+}
+
+.carousel-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
+
+.carousel-card p {
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  margin: 0;
+}
+
+.carousel-wrapper {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5em;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1em;
+  width: 150px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+.carousel-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
+
+.carousel-card p {
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  margin: 0;
+}
