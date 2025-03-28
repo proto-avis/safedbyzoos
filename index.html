@@ -9,10 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Overlay -->
   <div class="overlay" onclick="closeMenu()"></div>
 
-  <!-- Off-Canvas-Menü -->
   <nav class="offcanvas-menu" id="menu">
     <ul>
       <li><a href="wieso-zoo.html">Wieso Zoos</a></li>
@@ -23,93 +21,31 @@
     </ul>
   </nav>
 
-  <!-- Header -->
   <header class="topbar">
     <img src="img/Logo.PNG" alt="Saved by Zoos Logo" class="logo-large" />
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
   </header>
 
   <main>
-<section class="highlight-section">
-  <div class="highlight-box">
-    V
-    <!-- Zoo-Kooperationen -->
-    <section class="coop-section">
-      <div class="coop-box">
-        <h2>Zoo-Kooperationen</h2>
+    <!-- 🐾 Gerettete Arten -->
+    <section class="highlight-section">
+      <div class="highlight-box">
+        <h2>Gerettete Arten</h2>
 
-        <div class="coop-scroll-gallery">
-          <div class="coop-track">
-            <a href="https://www.worldwildlife.org/" target="_blank" class="coop-logo">
-              <img src="img/logo-wwf.png" alt="WWF" />
-            </a>
-            <a href="https://www.greenpeace.org/" target="_blank" class="coop-logo">
-              <img src="img/logo-greenpeace.png" alt="Greenpeace" />
-            </a>
-            <a href="https://www.nabu.de/" target="_blank" class="coop-logo">
-              <img src="img/logo-nabu.png" alt="NABU" />
-            </a>
+        <div class="carousel-wrapper" id="carouselWrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <a href="tiere/wisent.html" class="carousel-card"><img src="img/wisent1.jpg" alt="Wisent" /><p>Wisent</p></a>
+            <a href="tiere/waldrapp.html" class="carousel-card"><img src="img/waldrapp1.jpg" alt="Waldrapp" /><p>Waldrapp</p></a>
+            <a href="tiere/schwarzfussiltis.html" class="carousel-card"><img src="img/iltis1.jpg" alt="Schwarzfußiltis" /><p>Schwarzfußiltis</p></a>
+            <a href="tiere/arabische-oryx.html" class="carousel-card"><img src="img/oryx1.jpg" alt="Arabische Oryx" /><p>Arabische Oryx</p></a>
+            <a href="tiere/kalifornischer-kondor.html" class="carousel-card"><img src="img/kondor1.jpg" alt="Kalifornischer Kondor" /><p>Kalifornischer Kondor</p></a>
+            <a href="tiere/goldenes-loewenaeffchen.html" class="carousel-card"><img src="img/loewen1.jpg" alt="Goldenes Löwenäffchen" /><p>Goldenes Löwenäffchen</p></a>
+            <a href="tiere/baumhummer.html" class="carousel-card"><img src="img/baumhummer1.jpg" alt="Baumhummer" /><p>Baumhummer</p></a>
           </div>
         </div>
 
         <div class="gallery-link">
-          <a href="unterstuetzer.html">Mehr Kooperationen</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pro-Zoo Argumente -->
-    <section class="argumente-section">
-      <div class="argumente-box">
-        <h2>Warum Zoos wichtig sind</h2>
-        <div class="argumente-grid">
-          <div class="argument">
-            <p class="kritik">„Zoos sind Tiergefängnisse.“</p>
-            <p class="antwort">Moderne Zoos bieten artgerechte, sichere Lebensräume für bedrohte Arten.</p>
-          </div>
-          <div class="argument">
-            <p class="kritik">„Tiere gehören in die Wildnis.“</p>
-            <p class="antwort">Viele Arten hätten ohne Zoos keine überlebensfähige Wildpopulation mehr.</p>
-          </div>
-          <div class="argument">
-            <p class="kritik">„Zoos dienen nur der Unterhaltung.“</p>
-            <p class="antwort">Sie leisten aktive Forschung, Bildung und Arterhaltungsarbeit weltweit.</p>
-          </div>
-          <div class="argument">
-            <p class="kritik">„Nachzuchten landen nicht in der Natur.“</p>
-            <p class="antwort">Wiederauswilderung braucht Zeit – Zoos bereiten Populationen gezielt vor.</p>
-          </div>
-        </div>
-        <div class="gallery-link">
-          <a href="zookritik.html">Mehr Argumente anzeigen</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Zitate -->
-    <section class="zitate-section">
-      <div class="zitate-box">
-        <h2>Stimmen für Zoos</h2>
-        <div class="zitate-scroll-gallery">
-          <div class="zitate-track">
-            <div class="zitat">
-              <div class="sprechblase">„Nur wer schützt, kann bewahren.“</div>
-              <div class="autor">
-                <img src="img/attenborough.png" alt="David Attenborough" />
-                <div><strong>David Attenborough</strong><br>Dokumentarfilmer</div>
-              </div>
-            </div>
-            <div class="zitat">
-              <div class="sprechblase">„Artenschutz beginnt mit Verständnis.“</div>
-              <div class="autor">
-                <img src="img/godall.png" alt="Jane Goodall" />
-                <div><strong>Jane Goodall</strong><br>Verhaltensforscherin</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-link">
-          <a href="zitate.html">Alle Zitate ansehen</a>
+          <a href="index.html">Zur Galerie</a>
         </div>
       </div>
     </section>
@@ -120,17 +56,16 @@
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
   </footer>
 
+  <!-- 🧠 Menü-Steuerung -->
   <script>
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("open");
       document.querySelector(".overlay").classList.toggle("show");
     }
-
     function closeMenu() {
       document.getElementById("menu").classList.remove("open");
       document.querySelector(".overlay").classList.remove("show");
     }
-
     document.addEventListener("touchstart", handleTouchStart, false);
     document.addEventListener("touchend", handleTouchEnd, false);
     let startX = null;
@@ -142,38 +77,38 @@
       startX = null;
     }
   </script>
+
+  <!-- 🔁 Karussell-Auto-Scroll -->
   <script>
-  const wrapper = document.getElementById('carouselWrapper');
-  const track = document.getElementById('carouselTrack');
-  const cards = Array.from(track.children);
+    const wrapper = document.getElementById("carouselWrapper");
+    const track = document.getElementById("carouselTrack");
 
-  // Zufällige Reihenfolge
-  const shuffled = cards.sort(() => 0.5 - Math.random());
+    let cards = Array.from(track.children);
+    let shuffled = cards.sort(() => 0.5 - Math.random());
 
-  // Duplizieren für Loop
-  shuffled.concat(shuffled).forEach(card => {
-    track.appendChild(card.cloneNode(true));
-  });
+    track.innerHTML = "";
+    shuffled.forEach(card => track.appendChild(card));
+    shuffled.forEach(card => track.appendChild(card.cloneNode(true)));
 
-  let position = 0;
-  let paused = false;
+    let scrollPos = 0;
+    let paused = false;
 
-  wrapper.addEventListener("mouseenter", () => paused = true);
-  wrapper.addEventListener("mouseleave", () => paused = false);
-  wrapper.addEventListener("touchstart", () => paused = true);
-  wrapper.addEventListener("touchend", () => paused = false);
+    wrapper.addEventListener("mouseenter", () => paused = true);
+    wrapper.addEventListener("mouseleave", () => paused = false);
+    wrapper.addEventListener("touchstart", () => paused = true);
+    wrapper.addEventListener("touchend", () => paused = false);
 
-  function autoScroll() {
-    if (!paused) {
-      position += 0.6;
-      if (position >= track.scrollWidth / 2) position = 0;
-      track.style.transform = `translateX(-${position}px)`;
+    function loopScroll() {
+      if (!paused) {
+        scrollPos += 0.5;
+        if (scrollPos >= track.scrollWidth / 2) scrollPos = 0;
+        track.style.transform = `translateX(-${scrollPos}px)`;
+      }
+      requestAnimationFrame(loopScroll);
     }
-    requestAnimationFrame(autoScroll);
-  }
 
-  requestAnimationFrame(autoScroll);
-</script>
-
+    requestAnimationFrame(loopScroll);
+  </script>
 </body>
 </html>
+
