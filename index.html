@@ -30,42 +30,41 @@
   </header>
 
   <main>
- <!-- Abschnitt: Gerettete Arten -->
 <section class="highlight-section">
   <div class="highlight-box">
     <h2>Gerettete Arten</h2>
 
     <div class="carousel-wrapper" id="carouselWrapper">
       <div class="carousel-track" id="carouselTrack">
-        <!-- Beispielkarten -->
-        <div class="carousel-card">
+        <!-- Tierkarten mit Links -->
+        <a href="tiere/wisent.html" class="carousel-card">
           <img src="img/wisent1.jpg" alt="Wisent" />
           <p>Wisent</p>
-        </div>
-        <div class="carousel-card">
+        </a>
+        <a href="tiere/waldrapp.html" class="carousel-card">
           <img src="img/waldrapp1.jpg" alt="Waldrapp" />
           <p>Waldrapp</p>
-        </div>
-        <div class="carousel-card">
+        </a>
+        <a href="tiere/schwarzfussiltis.html" class="carousel-card">
           <img src="img/iltis1.jpg" alt="Schwarzfußiltis" />
           <p>Schwarzfußiltis</p>
-        </div>
-        <div class="carousel-card">
+        </a>
+        <a href="tiere/arabische-oryx.html" class="carousel-card">
           <img src="img/oryx1.jpg" alt="Arabische Oryx" />
           <p>Arabische Oryx</p>
-        </div>
-        <div class="carousel-card">
+        </a>
+        <a href="tiere/kalifornischer-kondor.html" class="carousel-card">
           <img src="img/kondor1.jpg" alt="Kalifornischer Kondor" />
           <p>Kalifornischer Kondor</p>
-        </div>
-        <div class="carousel-card">
+        </a>
+        <a href="tiere/goldenes-loewenaeffchen.html" class="carousel-card">
           <img src="img/loewen1.jpg" alt="Goldenes Löwenäffchen" />
           <p>Goldenes Löwenäffchen</p>
-        </div>
-        <div class="carousel-card">
+        </a>
+        <a href="tiere/baumhummer.html" class="carousel-card">
           <img src="img/baumhummer1.jpg" alt="Baumhummer" />
           <p>Baumhummer</p>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -74,38 +73,6 @@
     </div>
   </div>
 </section>
-
-<script>
-  const wrapper = document.getElementById('carouselWrapper');
-  const track = document.getElementById('carouselTrack');
-
-  // Duplizieren für Endlos-Loop
-  track.innerHTML += track.innerHTML;
-
-  // Zufälliger Startversatz
-  const cardWidth = track.children[0].offsetWidth + 24; // mit gap
-  let position = Math.floor(Math.random() * (track.children.length / 2)) * cardWidth;
-  track.scrollLeft = position;
-
-  let paused = false;
-
-  wrapper.addEventListener("mouseenter", () => paused = true);
-  wrapper.addEventListener("mouseleave", () => paused = false);
-  wrapper.addEventListener("touchstart", () => paused = true);
-  wrapper.addEventListener("touchend", () => paused = false);
-
-  function autoScroll() {
-    if (!paused) {
-      track.scrollLeft += 0.6;
-      if (track.scrollLeft >= track.scrollWidth / 2) {
-        track.scrollLeft = 0;
-      }
-    }
-    requestAnimationFrame(autoScroll);
-  }
-
-  requestAnimationFrame(autoScroll);
-</script>
 
     <!-- Zoo-Kooperationen -->
     <section class="coop-section">
