@@ -99,86 +99,52 @@
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
   </footer>
 
-  <!-- 🔧 Menü-Steuerung -->
-  <script>
-    function toggleMenu() {
-      document.getElementById("menu").classList.toggle("open");
-      document.querySelector(".overlay").classList.toggle("show");
-    }
-    function closeMenu() {
-      document.getElementById("menu").classList.remove("open");
-      document.querySelector(".overlay").classList.remove("show");
-    }
-    document.addEventListener("touchstart", handleTouchStart, false);
-    document.addEventListener("touchend", handleTouchEnd, false);
-    let startX = null;
-    function handleTouchStart(e) { startX = e.changedTouches[0].clientX; }
-    function handleTouchEnd(e) {
-      if (!startX) return;
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) closeMenu();
-      startX = null;
-    }
-  </script>
-
   <!-- 🐾 Gerettete Arten Auto-Scroll -->
-  <script>
-    const wrapper = document.getElementById("carouselWrapper");
-    const track = document.getElementById("carouselTrack");
-
-    let cards = Array.from(track.children);
-    let shuffled = cards.sort(() => 0.5 - Math.random());
-
-    track.innerHTML = "";
-    [...shuffled, ...shuffled].forEach(card => track.appendChild(card.cloneNode(true)));
-
-    let paused = false;
-    wrapper.addEventListener("mouseenter", () => paused = true);
-    wrapper.addEventListener("mouseleave", () => paused = false);
-    wrapper.addEventListener("touchstart", () => paused = true);
-    wrapper.addEventListener("touchend", () => paused = false);
-
-    setTimeout(() => {
-      const startCard = Math.floor(Math.random() * shuffled.length);
-      const offset = track.children[startCard].offsetLeft;
-      track.scrollLeft = offset;
-    }, 100);
-
-    function autoScroll() {
-      if (!paused) {
-        track.scrollLeft += 0.5;
-        if (track.scrollLeft >= track.scrollWidth / 2) {
-          track.scrollLeft = 0;
-        }
-      }
-      requestAnimationFrame(autoScroll);
-    }
-
+  
 <script>
+  // Menü
+  function toggleMenu() {
+    document.getElementById("menu").classList.toggle("open");
+    document.querySelector(".overlay").classList.toggle("show");
+  }
+  function closeMenu() {
+    document.getElementById("menu").classList.remove("open");
+    document.querySelector(".overlay").classList.remove("show");
+  }
+  document.addEventListener("touchstart", handleTouchStart, false);
+  document.addEventListener("touchend", handleTouchEnd, false);
+  let startX = null;
+  function handleTouchStart(e) { startX = e.changedTouches[0].clientX; }
+  function handleTouchEnd(e) {
+    if (!startX) return;
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) closeMenu();
+    startX = null;
+  }
+
+  // Gerettete Arten Scroll
   const wrapper = document.getElementById("carouselWrapper");
   const track = document.getElementById("carouselTrack");
 
-  // Karten in zufälliger Reihenfolge sortieren
+  // Zufällig mischen & duplizieren
   let cards = Array.from(track.children);
   let shuffled = cards.sort(() => Math.random() - 0.5);
-
-  // Duplizieren für Endlos-Loop
   track.innerHTML = "";
   [...shuffled, ...shuffled].forEach(card => track.appendChild(card.cloneNode(true)));
 
+  // Auto-Scroll Steuerung
   let paused = false;
   wrapper.addEventListener("mouseenter", () => paused = true);
   wrapper.addEventListener("mouseleave", () => paused = false);
   wrapper.addEventListener("touchstart", () => paused = true);
   wrapper.addEventListener("touchend", () => paused = false);
 
-  // Zufälliger Startpunkt
+  // Zufälliger Start
   setTimeout(() => {
     const startCard = Math.floor(Math.random() * shuffled.length);
     track.scrollLeft = track.children[startCard].offsetLeft;
-  }, 200);
+  }, 100);
 
-  // Endlos-Auto-Scroll
   function autoScroll() {
     if (!paused) {
       track.scrollLeft += 0.5;
@@ -191,6 +157,7 @@
 
   requestAnimationFrame(autoScroll);
 </script>
+
 
 </body>
 </html>
