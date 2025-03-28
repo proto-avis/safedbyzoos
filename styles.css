@@ -327,11 +327,10 @@ footer {
   font-size: 0.9em;
   margin-top: 2em;
 }
-
 .carousel-wrapper {
   overflow-x: hidden;
-  width: 100%;
   position: relative;
+  width: 100%;
   padding-bottom: 1em;
 }
 
@@ -372,4 +371,3 @@ footer {
   color: white;
   margin: 0;
 }
-
