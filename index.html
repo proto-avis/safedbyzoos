@@ -49,14 +49,55 @@
         </div>
       </div>
     </section>
-  </main>
+    <!-- 🧩 Zoo-Kooperationen -->
+    <section class="coop-section">
+      <div class="coop-box">
+        <h2>Zoo-Kooperationen</h2>
+        <div class="coop-scroll-gallery">
+          <div class="coop-track">
+            <a href="https://www.worldwildlife.org/" target="_blank" class="coop-logo"><img src="img/logo-wwf.png" alt="WWF" /></a>
+            <a href="https://www.greenpeace.org/" target="_blank" class="coop-logo"><img src="img/logo-greenpeace.png" alt="Greenpeace" /></a>
+            <a href="https://www.nabu.de/" target="_blank" class="coop-logo"><img src="img/logo-nabu.png" alt="NABU" /></a>
+          </div>
+        </div>
+        <div class="gallery-link"><a href="unterstuetzer.html">Mehr Kooperationen</a></div>
+      </div>
+    </section>
 
+    <!-- 💬 Warum Zoos wichtig sind -->
+    <section class="argumente-section">
+      <div class="argumente-box">
+        <h2>Warum Zoos wichtig sind</h2>
+        <div class="argumente-grid">
+          <div class="argument"><p class="kritik">„Zoos sind Tiergefängnisse.“</p><p class="antwort">Moderne Zoos bieten artgerechte, sichere Lebensräume für bedrohte Arten.</p></div>
+          <div class="argument"><p class="kritik">„Tiere gehören in die Wildnis.“</p><p class="antwort">Viele Arten hätten ohne Zoos keine überlebensfähige Wildpopulation mehr.</p></div>
+          <div class="argument"><p class="kritik">„Zoos dienen nur der Unterhaltung.“</p><p class="antwort">Sie leisten aktive Forschung, Bildung und Arterhaltungsarbeit weltweit.</p></div>
+          <div class="argument"><p class="kritik">„Nachzuchten landen nicht in der Natur.“</p><p class="antwort">Wiederauswilderung braucht Zeit – Zoos bereiten Populationen gezielt vor.</p></div>
+        </div>
+        <div class="gallery-link"><a href="zookritik.html">Mehr Argumente anzeigen</a></div>
+      </div>
+    </section>
+
+    <!-- 💬 Stimmen für Zoos -->
+    <section class="zitate-section">
+      <div class="zitate-box">
+        <h2>Stimmen für Zoos</h2>
+        <div class="zitate-scroll-gallery">
+          <div class="zitate-track">
+            <div class="zitat"><div class="sprechblase">„Nur wer schützt, kann bewahren.“</div><div class="autor"><img src="img/attenborough.jpg" alt="David Attenborough" /><div><strong>David Attenborough</strong><br>Dokumentarfilmer</div></div></div>
+            <div class="zitat"><div class="sprechblase">„Artenschutz beginnt mit Verständnis.“</div><div class="autor"><img src="img/godall.jpg" alt="Jane Goodall" /><div><strong>Jane Goodall</strong><br>Verhaltensforscherin</div></div></div>
+          </div>
+        </div>
+        <div class="gallery-link"><a href="zitate.html">Alle Zitate ansehen</a></div>
+      </div>
+    </section>
+  </main>
   <footer>
     <p>© 2025 Saved by Zoos – Alle Rechte vorbehalten.</p>
     <p><a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a></p>
   </footer>
 
-  <!-- 🧠 Menü-Steuerung -->
+  <!-- 🔧 Menü-Steuerung -->
   <script>
     function toggleMenu() {
       document.getElementById("menu").classList.toggle("open");
@@ -78,7 +119,7 @@
     }
   </script>
 
-  <!-- 🔁 Karussell-Auto-Scroll -->
+  <!-- 🐾 Gerettete Arten Auto-Scroll -->
   <script>
     const wrapper = document.getElementById("carouselWrapper");
     const track = document.getElementById("carouselTrack");
@@ -87,28 +128,31 @@
     let shuffled = cards.sort(() => 0.5 - Math.random());
 
     track.innerHTML = "";
-    shuffled.forEach(card => track.appendChild(card));
-    shuffled.forEach(card => track.appendChild(card.cloneNode(true)));
+    [...shuffled, ...shuffled].forEach(card => track.appendChild(card.cloneNode(true)));
 
-    let scrollPos = 0;
     let paused = false;
-
     wrapper.addEventListener("mouseenter", () => paused = true);
     wrapper.addEventListener("mouseleave", () => paused = false);
     wrapper.addEventListener("touchstart", () => paused = true);
     wrapper.addEventListener("touchend", () => paused = false);
 
-    function loopScroll() {
+    setTimeout(() => {
+      const startCard = Math.floor(Math.random() * shuffled.length);
+      const offset = track.children[startCard].offsetLeft;
+      track.scrollLeft = offset;
+    }, 100);
+
+    function autoScroll() {
       if (!paused) {
-        scrollPos += 0.5;
-        if (scrollPos >= track.scrollWidth / 2) scrollPos = 0;
-        track.style.transform = `translateX(-${scrollPos}px)`;
+        track.scrollLeft += 0.5;
+        if (track.scrollLeft >= track.scrollWidth / 2) {
+          track.scrollLeft = 0;
+        }
       }
-      requestAnimationFrame(loopScroll);
+      requestAnimationFrame(autoScroll);
     }
 
-    requestAnimationFrame(loopScroll);
+    requestAnimationFrame(autoScroll);
   </script>
 </body>
 </html>
-
