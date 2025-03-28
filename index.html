@@ -152,6 +152,42 @@
       requestAnimationFrame(autoScroll);
     }
 
+    <script>
+  const wrapper = document.getElementById("carouselWrapper");
+  const track = document.getElementById("carouselTrack");
+
+  let cards = Array.from(track.children);
+  let shuffled = cards.sort(() => 0.5 - Math.random());
+
+  // Clear and duplicate for loop
+  track.innerHTML = "";
+  [...shuffled, ...shuffled].forEach(card => track.appendChild(card.cloneNode(true)));
+
+  let paused = false;
+  wrapper.addEventListener("mouseenter", () => paused = true);
+  wrapper.addEventListener("mouseleave", () => paused = false);
+  wrapper.addEventListener("touchstart", () => paused = true);
+  wrapper.addEventListener("touchend", () => paused = false);
+
+  setTimeout(() => {
+    const startCard = Math.floor(Math.random() * shuffled.length);
+    track.scrollLeft = track.children[startCard].offsetLeft;
+  }, 200);
+
+  function autoScroll() {
+    if (!paused) {
+      track.scrollLeft += 0.5;
+      if (track.scrollLeft >= track.scrollWidth / 2) {
+        track.scrollLeft = 0;
+      }
+    }
+    requestAnimationFrame(autoScroll);
+  }
+
+  requestAnimationFrame(autoScroll);
+</script>
+
+
     requestAnimationFrame(autoScroll);
   </script>
 </body>
