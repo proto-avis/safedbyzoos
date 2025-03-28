@@ -468,4 +468,39 @@ footer {
   color: white;
   margin: 0;
 }
+.carousel-wrapper {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5em;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.carousel-card {
+  background: #222;
+  border-radius: 10px;
+  padding: 1em;
+  width: 150px;
+  flex: 0 0 auto;
+  text-align: center;
+  text-decoration: none;
+}
+
+.carousel-card img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5em;
+}
+
+.carousel-card p {
+  font-weight: bold;
+  font-size: 1em;
+  color: white;
+  margin: 0;
+}
 
