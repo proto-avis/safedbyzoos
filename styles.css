@@ -94,7 +94,7 @@ a:hover {
   display: block;
 }
 
-/* === Gerettete Arten === */
+/* === Gerettete Arten – Karussell === */
 .highlight-section {
   background: white;
   padding: 2.5em 1em;
@@ -110,16 +110,18 @@ a:hover {
   text-align: center;
 }
 
-.carousel-gallery {
-  overflow-x: auto;
-  white-space: nowrap;
-  margin: 2em 0;
+.carousel-wrapper {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
   padding-bottom: 1em;
 }
 
 .carousel-track {
   display: flex;
   gap: 1.5em;
+  will-change: transform;
+  transition: transform 0.1s linear;
 }
 
 .carousel-card {
@@ -128,6 +130,9 @@ a:hover {
   padding: 1em;
   width: 150px;
   flex: 0 0 auto;
+  scroll-snap-align: start;
+  text-align: center;
+  text-decoration: none;
 }
 
 .carousel-card img {
@@ -143,7 +148,7 @@ a:hover {
   margin: 0;
 }
 
-/* === Buttons neutral === */
+/* === Buttons === */
 .gallery-link a {
   display: inline-block;
   margin-top: 1em;
@@ -323,184 +328,4 @@ footer {
   margin-top: 2em;
 }
 
-.carousel-wrapper {
-  overflow: hidden;
-  position: relative;
-  padding-bottom: 1em;
-}
-
-.carousel-inner {
-  display: flex;
-  gap: 1.5em;
-  will-change: transform;
-}
-
-.carousel-card {
-  background: #222;
-  border-radius: 10px;
-  padding: 1em;
-  width: 150px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
-
-.carousel-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 0.5em;
-}
-
-.carousel-card p {
-  font-weight: bold;
-  font-size: 1em;
-  color: white;
-  margin: 0;
-}
-
-.carousel-wrapper {
-  overflow: hidden;
-  position: relative;
-  padding-bottom: 1em;
-}
-
-.carousel-inner {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1.5em;
-  will-change: transform;
-  transition: transform 0.1s linear;
-}
-
-.carousel-card {
-  background: #222;
-  border-radius: 10px;
-  padding: 1em;
-  width: 150px;
-  flex: 0 0 auto;
-}
-
-.carousel-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 0.5em;
-}
-
-.carousel-card p {
-  font-weight: bold;
-  font-size: 1em;
-  color: white;
-  margin: 0;
-}
-
-.carousel-wrapper {
-  overflow-x: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1.5em;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.carousel-card {
-  background: #222;
-  border-radius: 10px;
-  padding: 1em;
-  width: 150px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
-
-.carousel-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 0.5em;
-}
-
-.carousel-card p {
-  font-weight: bold;
-  font-size: 1em;
-  color: white;
-  margin: 0;
-}
-.carousel-wrapper {
-  overflow-x: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1.5em;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.carousel-card {
-  background: #222;
-  border-radius: 10px;
-  padding: 1em;
-  width: 150px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
-
-.carousel-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 0.5em;
-}
-
-.carousel-card p {
-  font-weight: bold;
-  font-size: 1em;
-  color: white;
-  margin: 0;
-}
-.carousel-wrapper {
-  overflow-x: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.carousel-track {
-  display: flex;
-  gap: 1.5em;
-  will-change: transform;
-  transition: transform 0.1s linear;
-}
-
-.carousel-card {
-  background: #222;
-  border-radius: 10px;
-  padding: 1em;
-  width: 150px;
-  flex: 0 0 auto;
-  text-align: center;
-  text-decoration: none;
-}
-
-.carousel-card img {
-  width: 100%;
-  border-radius: 6px;
-  margin-bottom: 0.5em;
-}
-
-.carousel-card p {
-  font-weight: bold;
-  font-size: 1em;
-  color: white;
-  margin: 0;
-}
 
