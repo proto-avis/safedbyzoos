@@ -111,8 +111,8 @@ a:hover {
 }
 
 .carousel-wrapper {
-  overflow-x: hidden;
   position: relative;
+  overflow: hidden;
   width: 100%;
   padding-bottom: 1em;
 }
@@ -121,8 +121,8 @@ a:hover {
   display: flex;
   gap: 1.5em;
   will-change: transform;
-  transition: transform 0.1s linear;
 }
+
 
 .carousel-card {
   background: #222;
